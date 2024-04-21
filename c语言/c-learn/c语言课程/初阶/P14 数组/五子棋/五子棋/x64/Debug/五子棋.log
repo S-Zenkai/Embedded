@@ -1,0 +1,7 @@
+﻿  game-五子棋.c
+  text-五子棋.c
+D:\嵌入式\c语言\c-learn\初阶\P14 数组\五子棋\五子棋\text-五子棋.c(53,8): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\嵌入式\c语言\c-learn\初阶\P14 数组\五子棋\五子棋\text-五子棋.c(67,3): warning C4102: “defult”: 未引用的标签
+  正在生成代码...
+D:\嵌入式\c语言\c-learn\初阶\P14 数组\五子棋\五子棋\game-五子棋.c(246): warning C4715: “Is_win”: 不是所有的控件路径都返回值
+  五子棋.vcxproj -> D:\嵌入式\c语言\c-learn\初阶\P14 数组\五子棋\x64\Debug\五子棋.exe

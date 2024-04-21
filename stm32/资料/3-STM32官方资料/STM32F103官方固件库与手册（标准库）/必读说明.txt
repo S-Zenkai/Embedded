@@ -1,0 +1,2 @@
+文件夹里面的stm32f10x_stdperiph_lib_um为官方库说明手册
+目前没有中文文档
