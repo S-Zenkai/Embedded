@@ -23,7 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
-
+//#include "bsp_SisTick.h"
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
   */
@@ -132,9 +132,12 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
+extern void SisTick_Counter_Decrement(void);
 void SysTick_Handler(void)
 {
-	SisTick_Counter--;
+//	extern __IO uint32_t SisTick_Counter;;
+//	SisTick_Counter--;
+	SisTick_Counter_Decrement();
 }
 
 /******************************************************************************/

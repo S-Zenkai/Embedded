@@ -5,13 +5,14 @@
 int main(void)
 {
 	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE);
+	SisTick_Init(void);
 	while(1)
 	{
 		LED_B_Config();
 		LED_B(ON);
-	  Delay_SisTick_ms(1000);
+	  Delay_SisTick_ms(500);
 	  LED_B(OFF);
-	  Delay_SisTick_ms(1000);
+	  Delay_SisTick_ms(500);
 	}
 }
 
