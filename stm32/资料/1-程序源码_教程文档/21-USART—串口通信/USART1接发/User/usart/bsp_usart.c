@@ -87,10 +87,10 @@ void USART_Config(void)
 	USART_Init(DEBUG_USARTx, &USART_InitStructure);
 	
 	// 串口中断优先级配置
-	NVIC_Configuration();
+	//NVIC_Configuration();
 	
 	// 使能串口接收中断
-	USART_ITConfig(DEBUG_USARTx, USART_IT_RXNE, ENABLE);	
+	//USART_ITConfig(DEBUG_USARTx, USART_IT_RXNE, ENABLE);	
 	
 	// 使能串口
 	USART_Cmd(DEBUG_USARTx, ENABLE);	    
