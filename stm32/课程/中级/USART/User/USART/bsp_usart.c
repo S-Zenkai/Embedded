@@ -41,8 +41,8 @@ void USART_Config(void)
 	USART_Init(Debug_USART, &USART_InitStructure);
 	
 	//使能中断
-	NVIC_Config();
-	USART_ITConfig(Debug_USART, USART_IT_RXNE, ENABLE);
+//	NVIC_Config();
+//	USART_ITConfig(Debug_USART, USART_IT_RXNE, ENABLE);
 	
 	//使能串口
 	USART_Cmd(Debug_USART, ENABLE);
@@ -91,26 +91,26 @@ void SendData_Arr(USART_TypeDef* USARTx, uint8_t* pData, uint8_t sz)
 }
 
 
-///重定向c库函数printf到串口，重定向后可使用printf函数
-//int fputc(int ch, FILE *f)
-//{
-//		/* 发送一个字节数据到串口 */
-//		USART_SendData(Debug_USART, (uint8_t) ch);
-//		
-//		/* 等待发送完毕 */
-//		while (USART_GetFlagStatus(Debug_USART, USART_FLAG_TXE) == RESET);		
-//	
-//		return (ch);
-//}
+//重定向c库函数printf到串口，重定向后可使用printf函数
+int fputc(int ch, FILE *f)
+{
+		/* 发送一个字节数据到串口 */
+		USART_SendData(Debug_USART, (uint8_t) ch);
+		
+		/* 等待发送完毕 */
+		while (USART_GetFlagStatus(Debug_USART, USART_FLAG_TXE) == RESET);		
+	
+		return (ch);
+}
 
-/////重定向c库函数scanf到串口，重写向后可使用scanf、getchar等函数
-//int fgetc(FILE *f)
-//{
-//		/* 等待串口输入数据 */
-//		while (USART_GetFlagStatus(Debug_USART, USART_FLAG_RXNE) == RESET);
+///重定向c库函数scanf到串口，重写向后可使用scanf、getchar等函数
+int fgetc(FILE *f)
+{
+		/* 等待串口输入数据 */
+		while (USART_GetFlagStatus(Debug_USART, USART_FLAG_RXNE) == RESET);
 
-//		return (int)USART_ReceiveData(Debug_USART);
-//}
+		return (int)USART_ReceiveData(Debug_USART);
+}
 
 
 

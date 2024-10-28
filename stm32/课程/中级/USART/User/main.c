@@ -1,12 +1,13 @@
 #include "stm32f10x.h"
 #include "bsp_usart.h"
 #include "bsp.h"
-#if 0
+#if 1
 int main(void)
 {
 	extern uint16_t ret;
 	USART_Config();
-	//printf("%d",ret);
+	printf("%d",ret);
+	printf("abc");
 		//uint16_t ret=1;
 //	uint8_t sz=0;
 //	uint8_t arr[10]={0,1,2,3,4,5,6,7,8,9};
@@ -28,23 +29,23 @@ int main(void)
 //		scanf("%s",&ret);
 		//ret=getchar();
 //		printf("%c\n",ret);
-		switch (ret)
-		{
-			case 1:
-				LED_OFF;
-				LED_R(ON);
-			  break;
-			case 2:
-				LED_OFF;
-			  LED_G(ON);
-				break;
-			case 3:
-				LED_OFF;
-			  LED_B(ON);
-				break;
-			default:
-				LED_OFF;
-		}
+//		switch (ret)
+//		{
+//			case 1:
+//				LED_OFF;
+//				LED_R(ON);
+//			  break;
+//			case 2:
+//				LED_OFF;
+//			  LED_G(ON);
+//				break;
+//			case 3:
+//				LED_OFF;
+//			  LED_B(ON);
+//				break;
+//			default:
+//				LED_OFF;
+//		}
 	}
 }
 

@@ -1,5 +1,5 @@
 #include "stm32f10x.h"
-#include "bsp.h"
+#include "bsp_led.h"
 
 
 void Delay(uint32_t count)
@@ -9,28 +9,26 @@ void Delay(uint32_t count)
 }
 int main(void)
 {
-	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE);
+	LED_Config();
 	while(1)
 	{
-		LED_G_Config();
-		LED_G(ON);
-	  Delay(0xFFFFF);
-	  LED_G(OFF);
-	  Delay(0xFFFFF);
-		
-		LED_B_Config();
-		LED_B(ON);
-	  Delay(0xFFFFF);
-		LED_B(OFF);
-	  Delay(0xFFFFF);
-		
-		LED_R_Config();
-		LED_R(ON);
-	  Delay(0xFFFFF);
-		LED_R(OFF);
-	  Delay(0xFFFFF);
+		LED_R_ON;
+		Delay(0xFFFFF);
+		LED_R_OFF;
+		Delay(0xFFFFF);
+	  LED_G_ON;
+		Delay(0xFFFFFF);
+		LED_G_OFF;
+		Delay(0xFFFFFF);
+		LED_B_ON;
+		Delay(0xFFFFFF);
+		LED_B_OFF;
+		Delay(0xFFFFFF);
+		LED_Y_ON;
+		Delay(0xFFFFFF);
+		LED_Y_OFF;
+		Delay(0xFFFFFF);
 	}
 }
-
 
 
