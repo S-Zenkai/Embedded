@@ -289,102 +289,106 @@ void test(int arr[10])//ok?
 
 
 //冒泡排序
-void bubble(int* arr, int sz)
-{
-	int i = 0;
-	int j = 0;
-	int tmp = 0;
-	int flag = 1;
-	//趟数
-	for (i = 0; i < sz - 1; i++)
-	{
-		flag = 1;
-		for (j = 0; j <  sz - 1 - i; j++)
-		{
-			if (arr[j] < arr[j + 1])
-			{
-				tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-				flag = 0;
-			}
-		}
-		if (flag == 1)
-		{
-			break;
-		}
-	}
-}
+//void bubble(int* arr, int sz)
+//{
+//	int i = 0;
+//	int j = 0;
+//	int tmp = 0;
+//	int flag = 1;
+//	//趟数
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		flag = 1;
+//		for (j = 0; j <  sz - 1 - i; j++)
+//		{
+//			if (arr[j] < arr[j + 1])
+//			{
+//				tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//				flag = 0;
+//			}
+//		}
+//		if (flag == 1)
+//		{
+//			break;
+//		}
+//	}
+//}
+//
+//int com_int(const void* elem1, const void* elem2)
+//{
+//	return (*(int*)elem1 - *(int*)elem2);
+//}
+//void test1()
+//{
+//	int arr[] = {9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	//bubble(arr, sz);
+//	qsort(arr, sz, sizeof(arr[1]), com_int);
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
+//
+//struct Stu
+//{
+//	char name[10];
+//	int age;
+//	char sex[4];
+//};
+//int com_str(void* elem1, void* elem2)
+//{
+//	return strcmp((*(struct Stu*)elem1).name ,(*(struct Stu*)elem2).name);
+//}
+//void test2()
+//{
+//	struct Stu stu[] = { {"zhangshan",13,"男"},{"lishi",15,"女"},{"wangwu",14,"男"} };
+//	int sz = sizeof(stu) / sizeof(stu[1]);
+//	qsort(stu, sz, sizeof(stu[0]), com_str);
+//}
+//
+//void Exch(void* elem1, void* elem2, int widch)
+//{
+//
+//}
+//void bubble_sort(void* base, int sz, int widch, int (*cmp)(const void* elem1, const void* elem2))
+//{
+//	int i = 0;
+//	int j = 0;
+//	int tmp = 0;
+//	elem1 = 0;
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		for (j = 0; j < sz - 1 - i; j++)
+//		{
+//			if (cmp > 0)
+//			{
+//				Exch(elem1, elem2, widch);
+//			}
+//		}
+//	}
+//}
+//void test3()
+//{
+//	struct Stu stu[] = { {"zhangshan",13,"男"},{"lishi",15,"女"},{"wangwu",14,"男"} };
+//	int sz = sizeof(stu) / sizeof(stu[1]);
+//	qsort(stu, sz, sizeof(stu[0]), com_str);
+//}
+//int main()
+//{
+//	//使用qsort排序一个整形数组
+//	//test1();
+//	//使用qsort排序一个结构体
+//	//test2();
+//	//自己写一个qsort函数
+//	test3();
+//}
 
-int com_int(const void* elem1, const void* elem2)
-{
-	return (*(int*)elem1 - *(int*)elem2);
-}
-void test1()
-{
-	int arr[] = {9,8,7,6,5,4,3,2,1,0 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	int i = 0;
-	//bubble(arr, sz);
-	qsort(arr, sz, sizeof(arr[1]), com_int);
-	for (i = 0; i < sz; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-}
 
-struct Stu
-{
-	char name[10];
-	int age;
-	char sex[4];
-};
-int com_str(void* elem1, void* elem2)
-{
-	return strcmp((*(struct Stu*)elem1).name ,(*(struct Stu*)elem2).name);
-}
-void test2()
-{
-	struct Stu stu[] = { {"zhangshan",13,"男"},{"lishi",15,"女"},{"wangwu",14,"男"} };
-	int sz = sizeof(stu) / sizeof(stu[1]);
-	qsort(stu, sz, sizeof(stu[0]), com_str);
-}
-
-void Exch(void* elem1, void* elem2, int widch)
-{
-
-}
-void bubble_sort(void* base, int sz, int widch, int (*cmp)(const void* elem1, const void* elem2))
-{
-	int i = 0;
-	int j = 0;
-	int tmp = 0;
-	elem1 = 0;
-	for (i = 0; i < sz - 1; i++)
-	{
-		for (j = 0; j < sz - 1 - i; j++)
-		{
-			if (cmp > 0)
-			{
-				Exch(elem1, elem2, widch);
-			}
-		}
-	}
-}
-void test3()
-{
-	struct Stu stu[] = { {"zhangshan",13,"男"},{"lishi",15,"女"},{"wangwu",14,"男"} };
-	int sz = sizeof(stu) / sizeof(stu[1]);
-	qsort(stu, sz, sizeof(stu[0]), com_str);
-}
 int main()
 {
-	//使用qsort排序一个整形数组
-	//test1();
-	//使用qsort排序一个结构体
-	//test2();
-	//自己写一个qsort函数
-	test3();
+	int arr = 'a';
 }
-
-
