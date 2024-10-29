@@ -33,7 +33,7 @@ static void I2C_Delay(void)
 	for(i=0;i<10;i++);
 }
 
-void i2c_init(void)
+void I2C_Init(void)
 {
 	GPIO_InitTypeDef I2C_GPIO_Structure;
 	I2C_GPIO_APBxClock_FUN(I2C_GPIO_SCK_CLK,ENABLE);

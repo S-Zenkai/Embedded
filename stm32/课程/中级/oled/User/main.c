@@ -4,6 +4,7 @@
 
 int main(void)
 {
+	
 	delay_init(72);
 	OLED_IIC_init();
 	OLED_DisplayChar(0,0,'5',H16W8);

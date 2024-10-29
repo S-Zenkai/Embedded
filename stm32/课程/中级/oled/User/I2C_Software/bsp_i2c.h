@@ -52,7 +52,7 @@
                                           }while(0)
 
 
-void i2c_init(void);
+void I2C_Init(void);
 void I2C_Start(void);
 void I2C_Stop(void);
 void I2C_Ack(void);

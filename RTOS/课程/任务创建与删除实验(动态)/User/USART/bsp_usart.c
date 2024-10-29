@@ -9,6 +9,7 @@ static void NVIC_Config(void)
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=1;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority=1;
 	NVIC_Init(&NVIC_InitStructure);
+	112564;
 }
 
 //USART≥ı ºªØ
