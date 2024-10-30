@@ -23,10 +23,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
-//#include "bsp_SisTick.h"
+#include "bsp_sys.h"
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
   */
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -104,9 +105,12 @@ void UsageFault_Handler(void)
   * @param  None
   * @retval None
   */
+/* 加入宏开关 */
+#if (!SYS_SUPPORT_OS)
 void SVC_Handler(void)
-{
+{ 
 }
+#endif
 
 /**
   * @brief  This function handles Debug Monitor exception.
@@ -122,22 +126,39 @@ void DebugMon_Handler(void)
   * @param  None
   * @retval None
   */
+/* 加入宏开关 */
+#if (!SYS_SUPPORT_OS)
 void PendSV_Handler(void)
-{
+{ 
 }
+#endif
 
-/**
-  * @brief  This function handles SysTick Handler.
-  * @param  None
-  * @retval None
-  */
-extern void SisTick_Counter_Decrement(void);
-void SysTick_Handler(void)
-{
-//	extern __IO uint32_t SisTick_Counter;;
-//	SisTick_Counter--;
-	SisTick_Counter_Decrement();
-}
+///**
+//  * @brief  This function handles SysTick Handler.
+//  * @param  None
+//  * @retval None
+//  */
+///* 加入宏开关 */
+////#if (!SYS_SUPPORT_OS)
+///**
+//  * @brief  This function handles SysTick Handler.
+//  * @param  None
+//  * @retval None
+//  */
+//extern void xPortSysTickHandler(void);
+////systick中断服务函数
+//void SysTick_Handler(void)
+//{	
+//    #if (INCLUDE_xTaskGetSchedulerState  == 1 )
+//      if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
+//      {
+//    #endif  /* INCLUDE_xTaskGetSchedulerState */  
+//        xPortSysTickHandler();
+//    #if (INCLUDE_xTaskGetSchedulerState  == 1 )
+//      }
+//    #endif  /* INCLUDE_xTaskGetSchedulerState */
+//}
+////#endif
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
