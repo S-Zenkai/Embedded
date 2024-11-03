@@ -10,25 +10,63 @@
 
 #include <stdio.h>
 
-/**
- * @brief       交换后字典序最小的字符串
- * 
- */
 
-/**
- * @brief       
- * 
- */
-
-/**
- * @brief 
- * 
- * 
- */
-int main(void)
+void BubbleSort(int* arr,int sz)
 {
-    int a=5;
-    printf("%d",a);
-    return 0;
+    int i = 0;
+    int j = 0;
+    int tmp = 0;
+    for (j = 0; j < sz - 1;j++)
+    {
+        for (i = 0; i + 1 + j < sz; i++)
+        {
+            if(arr[i]>arr[i+1])
+            {
+                tmp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = tmp;
+            }
+        }
+    }
 }
+void merge(int *nums1, int nums1Size, int m, int *nums2, int nums2Size, int n)
+{
+    int i = 0;
+    for (i = 0; i < n; i++)
+    {
+        nums1[m + i] = nums2[i];
+    }
+    BubbleSort(nums1, nums1Size);
+}
+void main(void)
+{
+    int nums1[10]={0};
+    int nums2[5]={0};
+    int m = 6;
+    int n = 4;
+    int i = 0;
+    int sz = sizeof(nums1) / sizeof(nums1[0]);
+    printf("nums1=");
+    for (i = 0; i < m;i++)
+    {
+        scanf("%d", &nums1[i]);
+    }
+    printf("nums2=");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &nums2[i]);
+    }
+    for (i = 0; i < n;i++)
+    {
+        nums1[m + i] = nums2[i];
+    }
+    BubbleSort(nums1, sz);
+    for (i = 0; i < m + n; i++)
+    {
+        printf("%d ", nums1[i]);
+    }
+}
+
+
+
 
