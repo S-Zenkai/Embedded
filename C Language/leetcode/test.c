@@ -9,8 +9,9 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-
+#if 0
 void BubbleSort(int* arr,int sz)
 {
     int i = 0;
@@ -66,7 +67,40 @@ void main(void)
         printf("%d ", nums1[i]);
     }
 }
+#elif 1
 
+    int compae(const void *a, const void *b)
+{
+    return *(int *)a - *(int *)b;
+}
+void merge(int *nums1, int nums1Size, int m, int *nums2, int nums2Size, int n)
+{
+    int i = 0;
+    int sz = sizeof(nums1[0]);
+    for (i = 0; i < n; i++)
+    {
+        nums1[m + i] = nums2[i];
+    }
+    qsort(nums1, nums1Size, sz, compae);
+}
+
+int main(void)
+{
+    int nums1[] = {1,2,3,0,0,0};
+    int nums2[] = {2,5,6};
+    int nums1Size = sizeof(nums1) / sizeof(nums1[0]);
+    int nums2Size = sizeof(nums2) / sizeof(nums2[0]);
+    int m = 3;
+    int n = 3;
+    int i = 0;
+    merge(nums1, nums1Size, m, nums2, nums2Size, n);
+    printf("nums1=");
+    for (i = 0; i < m + n; i++)
+    {
+        printf("%d ", nums1[i]);
+    }
+}
+#endif
 
 
 
