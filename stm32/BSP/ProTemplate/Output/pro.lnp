@@ -28,6 +28,7 @@
 "..\output\bsp_sys.o"
 "..\output\bsp_systick.o"
 "..\output\bsp_usart.o"
+"..\output\bsp_led.o"
 "..\output\main.o"
 "..\output\stm32f10x_it.o"
 "..\output\freertos_demo.o"
