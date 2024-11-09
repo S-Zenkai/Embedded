@@ -1,0 +1,232 @@
+#include "bsp_pwm.h"
+
+/*电压幅值等级数*/
+#define AMPLITUDE_CLASS 256
+
+/* LED亮度等级 PWM表,指数曲线 ，此表使用工程目录下的python脚本index_wave.py生成*/
+const uint16_t indexWave[] = {
+    1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2,
+    2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5,
+    5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10,
+    11, 12, 12, 13, 14, 15, 17, 18,
+    19, 20, 22, 23, 25, 27, 29, 31,
+    33, 36, 38, 41, 44, 47, 51, 54,
+    58, 63, 67, 72, 77, 83, 89, 95,
+    102, 110, 117, 126, 135, 145, 156,
+    167, 179, 192, 206, 221, 237, 254,
+    272, 292, 313, 336, 361, 387, 415,
+    445, 477, 512, 512, 477, 445, 415,
+    387, 361, 336, 313, 292, 272, 254,
+    237, 221, 206, 192, 179, 167, 156,
+    145, 135, 126, 117, 110, 102, 95,
+    89, 83, 77, 72, 67, 63, 58, 54, 51,
+    47, 44, 41, 38, 36, 33, 31, 29, 27,
+    25, 23, 22, 20, 19, 18, 17, 15, 14,
+    13, 12, 12, 11, 10, 9, 9, 8, 8, 7, 7,
+    6, 6, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3,
+    3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1};
+
+uint16_t indexWaveSZ = sizeof(indexWave) / sizeof(indexWave[0]);
+
+static void NVIC_Configuration(void)
+{
+    NVIC_InitTypeDef NVIC_InitStructure;
+    /*配置优先级分组，只需在整个工程中配置一次*/
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+    NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1; /*抢占优先级*/
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;        /*子优先级*/
+    NVIC_Init(&NVIC_InitStructure);
+}
+
+
+static void TimBaseInit(void)
+{
+   TIM_TimeBaseInitTypeDef TimBaseInitStructure;
+   PWM_Timx_APBxClock_FUN(PWM_Timx_CLK, ENABLE);
+   /*选择内部时钟*/
+   TIM_InternalClockConfig(PWM_Timx);
+   TimBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+   TimBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+   TimBaseInitStructure.TIM_Period=512-1;
+   TimBaseInitStructure.TIM_Prescaler=10-1;
+   TimBaseInitStructure.TIM_RepetitionCounter = 0;
+   TIM_TimeBaseInit(PWM_Timx, &TimBaseInitStructure);
+   TIM_ClearFlag(PWM_Timx, TIM_FLAG_Update);
+}
+
+
+
+static void GPIOTimInit(void)
+{
+    GPIO_InitTypeDef GPIOInitStructuer;
+    PWM_GPIO_APBxClock_FUN(PWM_GPIO_CLK, ENABLE);
+    
+
+    GPIOInitStructuer.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIOInitStructuer.GPIO_Pin = PWM_GPIOG_Pin;
+    GPIOInitStructuer.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(PWM_GPIO_Port, &GPIOInitStructuer);
+
+    GPIOInitStructuer.GPIO_Pin = PWM_GPIOR_Pin;
+    GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3, ENABLE);
+    GPIO_Init(PWM_GPIO_Port, &GPIOInitStructuer);
+
+    GPIOInitStructuer.GPIO_Pin = PWM_GPIOB_Pin;
+    GPIO_Init(PWM_GPIO_Port, &GPIOInitStructuer);
+}
+
+
+/**
+ * PWM各参数计算公式：
+ *      1.PWM频率：F=CK_PSC/(ARR+1)(PSC+1);其中，CK_PSC是分配后时钟频率，ARR是重装载寄存器中的值，PSC是分频系数
+ *      2.占空比：Duty=CRR/(ARR+1);CRR是捕获比较寄存器中的值
+ *      3.分辨率：Reso=1/(ARR+1)
+ *
+ */
+static void TimOCxInit(void)
+{
+    TIM_OCInitTypeDef TimOCxInitStructuer;
+
+    TIM_OCStructInit(&TimOCxInitStructuer);
+    // TimOCxInitStructuer.TIM_OCIdleState;
+    TimOCxInitStructuer.TIM_OCMode = TIM_OCMode_PWM1;
+    // TimOCxInitStructuer.TIM_OCNIdleState;
+    // TimOCxInitStructuer.TIM_OCNPolarity;
+    TimOCxInitStructuer.TIM_OCPolarity = TIM_OCPolarity_Low; /*这个有什么用？试试另一个*/
+    // TimOCxInitStructuer.TIM_OutputNState;
+    TimOCxInitStructuer.TIM_OutputState = TIM_OutputState_Enable;
+    TimOCxInitStructuer.TIM_Pulse=0;/**/
+    TIM_OC3Init(PWM_Timx, &TimOCxInitStructuer);
+
+    TIM_OC4Init(PWM_Timx, &TimOCxInitStructuer);
+
+    TIM_OC2Init(PWM_Timx, &TimOCxInitStructuer);
+}
+
+void BreathingInit(void)
+{
+    NVIC_Configuration();/*NVIC中断优先级配置*/
+    TimBaseInit(); /*时基单元初始化*/
+    GPIOTimInit();/*GPIO端口初始化*/
+    TimOCxInit();/*输出比较初始化*/
+    TIM_ITConfig(PWM_Timx, TIM_IT_Update, ENABLE);
+    TIM_Cmd(PWM_Timx, ENABLE);
+}
+
+#if 1
+__IO uint32_t RGB888;/*24位颜色格式，max=0xFFFFFF*/
+__IO uint16_t pwm_counter = 0;
+uint16_t pwm_period;
+__IO uint16_t pwm_index = 0;
+void TIM3_IRQHandler(void)
+{
+    if (TIM_GetITStatus(PWM_Timx, TIM_IT_Update)==SET)
+    {
+			pwm_period++;
+        if (pwm_period <= AMPLITUDE_CLASS-1)
+        {
+            if (pwm_period <= ((RGB888 & 0XFF0000) >> 16))/*R*/
+                TIM_SetCompare2(PWM_Timx, indexWave[pwm_index]);
+            else
+                TIM_SetCompare2(PWM_Timx, 0);
+            if (pwm_period <= ((RGB888 & 0X00FF00) >> 8))
+                TIM_SetCompare3(PWM_Timx, indexWave[pwm_index]);
+            else
+                TIM_SetCompare3(PWM_Timx, 0);
+            if (pwm_period <= (RGB888 & 0X0000FF))
+                TIM_SetCompare4(PWM_Timx, indexWave[pwm_index]);
+            else
+                TIM_SetCompare4(PWM_Timx, 0);
+        }
+        else
+        {
+            pwm_counter++;
+            pwm_period = 0;
+            if(pwm_counter>1)
+            {
+                pwm_counter = 0;
+                pwm_index++;
+                if (pwm_index >= indexWaveSZ)
+                    pwm_index = 0;
+            }
+        }
+        TIM_ClearFlag(PWM_Timx, TIM_FLAG_Update);
+    }
+}
+#endif
+
+#if 0
+// extern uint16_t indexWave[];
+
+extern __IO uint32_t rgb_color;
+
+// 控制输出波形的频率
+__IO uint16_t period_class = 1;
+
+/* 呼吸灯中断服务函数 */
+void TIM3_IRQHandler(void)
+{
+    static uint16_t pwm_index = 0;     // 用于PWM查表
+    static uint16_t period_cnt = 0;    // 用于计算周期数
+    static uint16_t amplitude_cnt = 0; // 用于计算幅值等级
+
+    if (TIM_GetITStatus(PWM_Timx, TIM_IT_Update) != RESET) // TIM_IT_Update
+    {
+        amplitude_cnt++;
+
+        // 每个PWM表中的每个元素有AMPLITUDE_CLASS个等级，
+        // 每增加一级多输出一次脉冲，即PWM表中的元素多使用一次
+        // 使用256次，根据RGB颜色分量设置通道输出
+        if (amplitude_cnt > (AMPLITUDE_CLASS - 1))
+        {
+            period_cnt++;
+
+            // 每个PWM表中的每个元素使用period_class次
+            if (period_cnt > period_class)
+            {
+
+                pwm_index++; // 标志PWM表指向下一个元素
+
+                // 若PWM表已到达结尾，重新指向表头
+                if (pwm_index >= indexWaveSZ)
+                {
+                    pwm_index = 0;
+                }
+
+                period_cnt = 0; // 重置周期计数标志
+            }
+
+            amplitude_cnt = 0; // 重置幅值计数标志
+        }
+        else
+        {
+            // 每个PWM表中的每个元素有AMPLITUDE_CLASS个等级，
+            // 每增加一级多输出一次脉冲，即PWM表中的元素多使用一次
+
+            // 根据RGB颜色分量值，设置各个通道是否输出当前的PWM表元素表示的亮度
+            // 红
+            if (((rgb_color & 0xFF0000) >> 16) >= amplitude_cnt)
+                PWM_Timx->CCR2 = indexWave[pwm_index]; // 根据PWM表修改定时器的比较寄存器值
+            else
+                PWM_Timx->CCR2 = 0; // 比较寄存器值为0，通道输出高电平，该通道LED灯灭
+
+            // 绿
+            if (((rgb_color & 0x00FF00) >> 8) >= amplitude_cnt)
+                PWM_Timx->CCR3 = indexWave[pwm_index]; // 根据PWM表修改定时器的比较寄存器值
+            else
+                PWM_Timx->CCR3 = 0; // 比较寄存器值为0，通道输出高电平，该通道LED灯灭
+
+            // 蓝
+            if ((rgb_color & 0x0000FF) >= amplitude_cnt)
+                PWM_Timx->CCR4 = indexWave[pwm_index]; // 根据PWM表修改定时器的比较寄存器值
+            else
+                PWM_Timx->CCR4 = 0; // 比较寄存器值为0，通道输出高电平，该通道LED灯灭
+        }
+
+        TIM_ClearITPendingBit(PWM_Timx, TIM_IT_Update); // 必须要清除中断标志位
+    }
+}
+#endif
+
