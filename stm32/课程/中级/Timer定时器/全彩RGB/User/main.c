@@ -4,13 +4,14 @@
 #include "OLED.h"
 #include "bsp_pwm.h"
 #include "bsp_systick.h"
+#include "bsp_usart.h"
 
 #if 1
 extern uint16_t indexWave[];
 extern __IO uint32_t RGB888;
 
 uint16_t value = 0;
-int32_t i;
+// uint32_t i;
 void Delay(__IO uint32_t nCount) // 简单的延时函数
 {
   for (; nCount != 0; nCount--)
@@ -20,25 +21,13 @@ int main(void)
 {
   BreathingInit();
   SysTick_Init(72);
+	USART_Config();
   while (1)
   {
-    for (i = 0; i < 0XFFFFFF;i=i+1000)
-    {
-      RGB888 = i;
-      delay_ms(300);
-    }
-//     RGB888 = 0xFF00FF;
-// //    delay_ms(3000);
-// 		Delay(0x1FFFFFF);
-// 		RGB888 = 0x8080ff;
-// //    delay_ms(3000);
-// 		Delay(0x1FFFFFF);
-// 		RGB888 = 0xff8000;
-// //    delay_ms(3000);
-// 		Delay(0x1FFFFFF);
-// 		RGB888 = 0xffc90e;
-// //    delay_ms(3000);
-// 		Delay(0x1FFFFFF);
+    // i = rand() % (0xFFFFFF+1);
+		// printf("%x\n",i);
+    // RGB888 = i;
+		// delay_ms(3277);
   }
 }
 #endif

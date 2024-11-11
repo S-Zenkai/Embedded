@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\LED;..\Drivers\BSP\OLED;..\Drivers\BSP\TIM;..\Drivers\BSP\PWM;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\SYS</IncludePath>
+              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\LED;..\Drivers\BSP\OLED;..\Drivers\BSP\TIM;..\Drivers\BSP\PWM;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\SYS;..\Drivers\BSP\USART</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -548,6 +548,11 @@
               <FileName>bsp_sys.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\BSP\SYS\bsp_sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\输出比较\Drivers\BSP\USART\bsp_usart.c</FilePath>
             </File>
           </Files>
         </Group>

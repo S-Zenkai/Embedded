@@ -1,4 +1,6 @@
 #include "bsp_pwm.h"
+#include "bsp_usart.h"
+#include <stdlib.h>
 
 /*电压幅值等级数*/
 #define AMPLITUDE_CLASS 256
@@ -50,7 +52,7 @@ static void TimBaseInit(void)
    TimBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
    TimBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
    TimBaseInitStructure.TIM_Period=512-1;
-   TimBaseInitStructure.TIM_Prescaler=10-1;
+   TimBaseInitStructure.TIM_Prescaler=5-1;
    TimBaseInitStructure.TIM_RepetitionCounter = 0;
    TIM_TimeBaseInit(PWM_Timx, &TimBaseInitStructure);
    TIM_ClearFlag(PWM_Timx, TIM_FLAG_Update);
@@ -83,7 +85,7 @@ static void GPIOTimInit(void)
  *      1.PWM频率：F=CK_PSC/(ARR+1)(PSC+1);其中，CK_PSC是分配后时钟频率，ARR是重装载寄存器中的值，PSC是分频系数
  *      2.占空比：Duty=CRR/(ARR+1);CRR是捕获比较寄存器中的值
  *      3.分辨率：Reso=1/(ARR+1)
- *
+ * 
  */
 static void TimOCxInit(void)
 {
@@ -115,17 +117,29 @@ void BreathingInit(void)
     TIM_Cmd(PWM_Timx, ENABLE);
 }
 
+/**
+ *  亮灭周期计算：
+ *              1.中断时间：T1=(ARR*PSC)/72M;
+ *              2.PWM表每个元素使用时间（包括将比较捕获寄存器置零的时间）：
+ *               T2=AMPLITUDE_CLASS*2*T1；
+ *                其中，*2是因为if (pwm_counter>1)，当pwm_period>AMPLITUDE_CLASS时，pwm_period会置零重新加至AMPLITUDE_CLASS
+ *              3.亮灭周期T3=indexWaveSZ*T2;
+ *
+ * 中断函数编程思路：
+ *                 根据RGB888颜色格式，通过控制三个颜色通道在256个周期的亮灭周期占比即可控制
+ */
+
 #if 1
 __IO uint32_t RGB888;/*24位颜色格式，max=0xFFFFFF*/
 __IO uint16_t pwm_counter = 0;
 uint16_t pwm_period;
 __IO uint16_t pwm_index = 0;
+uint32_t i;
 void TIM3_IRQHandler(void)
 {
     if (TIM_GetITStatus(PWM_Timx, TIM_IT_Update)==SET)
     {
-			pwm_period++;
-        if (pwm_period <= AMPLITUDE_CLASS-1)
+        if (pwm_period < AMPLITUDE_CLASS)
         {
             if (pwm_period <= ((RGB888 & 0XFF0000) >> 16))/*R*/
                 TIM_SetCompare2(PWM_Timx, indexWave[pwm_index]);
@@ -139,17 +153,23 @@ void TIM3_IRQHandler(void)
                 TIM_SetCompare4(PWM_Timx, indexWave[pwm_index]);
             else
                 TIM_SetCompare4(PWM_Timx, 0);
+            pwm_period++;
         }
         else
         {
             pwm_counter++;
             pwm_period = 0;
-            if(pwm_counter>1)
+            if (pwm_counter>1)
             {
                 pwm_counter = 0;
                 pwm_index++;
                 if (pwm_index >= indexWaveSZ)
+                {
                     pwm_index = 0;
+                    i = rand() % (0xFFFFFF + 1);
+                    printf("%x\n", i);
+                    RGB888 = i;
+                }
             }
         }
         TIM_ClearFlag(PWM_Timx, TIM_FLAG_Update);
