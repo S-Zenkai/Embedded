@@ -107,6 +107,7 @@ static void TimOCxInit(void)
     TIM_OC2Init(PWM_Timx, &TimOCxInitStructuer);
 }
 
+
 void BreathingInit(void)
 {
     NVIC_Configuration();/*NVIC中断优先级配置*/
