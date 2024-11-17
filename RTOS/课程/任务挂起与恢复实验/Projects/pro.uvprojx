@@ -55,7 +55,7 @@
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Listings\</ListingPath>
+          <ListingPath>..\Output\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\LED</IncludePath>
+              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\LED;..\Drivers\BSP\KEY;..\Drivers\BSP\EXTI</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -549,6 +549,16 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers\BSP\LED\bsp_led.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\BSP\KEY\bsp_key.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\BSP\EXTI\bsp_exti.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -568,6 +578,11 @@
               <FileName>freertos_demo.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\freertos_demo.c</FilePath>
+            </File>
+            <File>
+              <FileName>FreeRTOSConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\FreeRTOSConfig.h</FilePath>
             </File>
           </Files>
         </Group>
