@@ -67,7 +67,7 @@ void main(void)
         printf("%d ", nums1[i]);
     }
 }
-#elif 1
+#elif 0
 
     int compae(const void *a, const void *b)
 {
@@ -100,6 +100,26 @@ int main(void)
         printf("%d ", nums1[i]);
     }
 }
+
+#elif 1
+
+struct test
+{
+    int a;
+    struct test *b;
+}c;
+
+
+int main(void)
+{
+    struct test *d;
+    c.a = 1;
+    printf("%d\n", c.a);
+    d = &c;
+    d->a = 5;
+    printf("%d\n", c.a);
+}
+
 #endif
 
 

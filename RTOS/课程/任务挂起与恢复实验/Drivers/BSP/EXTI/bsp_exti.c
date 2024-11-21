@@ -52,6 +52,10 @@ void ExtiInit(void)
     EXTI_Configure();
 }
 
+/**
+ * @brief       测试FreeRTOS中断级任务挂起函数效果
+ * 
+ */
 extern TaskHandle_t    Task1_Handle;
 void EXTI15_10_IRQHandler(void)
 {

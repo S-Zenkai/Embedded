@@ -67,9 +67,9 @@ void start_task(void* pvParameters)
 }
 
 /**
- * @brief       5s关闭中断，5s开启中断
- * 
- * @param       pvParameters 
+ * @brief       5s关闭中断，5s开启中断，因为TIMx1中断优先级大于FreeRTOS最低管理中断优先级，故无法关闭TIMx1中断.但可关闭TIMx2中断
+ *
+ * @param       pvParameters
  */
 void task1(void *pvParameters)
 {
