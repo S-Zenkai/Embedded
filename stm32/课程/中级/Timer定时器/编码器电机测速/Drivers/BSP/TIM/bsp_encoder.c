@@ -101,7 +101,7 @@ void EncoderInit(void)
 int16_t GetSpeed(void)
 {
     uint16_t speed = 0;
-    speed = TIM_GetCounter(Timx) / 44;/*电机一圈11个脉冲，一个脉冲计4次数*/
+    speed = TIM_GetCounter(Timx) / 1320;/*电机一圈11个脉冲，一个脉冲计4次数*/
     TIM_SetCounter(Timx, 0);
     return speed;
 }
