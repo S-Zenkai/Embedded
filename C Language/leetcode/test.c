@@ -103,21 +103,15 @@ int main(void)
 
 #elif 1
 
-struct test
-{
-    int a;
-    struct test *b;
-}c;
 
 
 int main(void)
 {
-    struct test *d;
-    c.a = 1;
-    printf("%d\n", c.a);
-    d = &c;
-    d->a = 5;
-    printf("%d\n", c.a);
+    float a = 10;
+    float b = 10;
+    float c = 3;
+    a = b / c;
+    printf("%f", a);
 }
 
 #endif
