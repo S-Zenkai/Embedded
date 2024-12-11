@@ -97,10 +97,15 @@ void IIC_SendAck(uint8_t ack)
     {
         IIC_SDA_WH;
     }
+    IIC_Delay();
     IIC_SCL_WH;
     IIC_Delay();
     IIC_SCL_WL;
     IIC_Delay();
+    if(ack==IIC_NASK)
+    {
+        IIC_SDA_WH;
+    }
 }
 
 /**
@@ -112,6 +117,8 @@ void IIC_SendAck(uint8_t ack)
 uint8_t IIC_ReceiveAck(void)
 {
     uint8_t ack;
+    // IIC_SDA_WH;
+    // IIC_Delay();
     IIC_SCL_WH;
     IIC_Delay();
     if (IIC_SDA_R == 0)
@@ -148,11 +155,11 @@ void IIC_SendByte(uint8_t data)
         IIC_Delay();/*这里要吗？*/
         IIC_SCL_WH;
         IIC_Delay();
+        IIC_SCL_WL;
         if (i == 7)
         {
-            IIC_SDA_WH;/*释放SDA总线*/
+            IIC_SDA_WH; /*释放SDA总线*/
         }
-        IIC_SCL_WL;
         IIC_Delay();
     }
 }
@@ -166,6 +173,8 @@ uint8_t IIC_ReceiveByte(void)
 {
     uint8_t i = 0;
     uint8_t data;
+    IIC_SCL_WH;
+    IIC_Delay();
     for (i = 0; i < 8; i++)
     {
         IIC_SCL_WH;
@@ -176,7 +185,7 @@ uint8_t IIC_ReceiveByte(void)
         }
         else
         {
-            data = data & (!(1 << (7 - i)));
+            data = data & (~(1 << (7 - i)));
         }
         // IIC_Delay();
         IIC_SCL_WL;
