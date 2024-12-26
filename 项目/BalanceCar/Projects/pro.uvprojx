@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\TIM;..\Drivers\BSP\TB6612;..\Drivers\BSP\ENCODER;..\Drivers\BSP\OLED</IncludePath>
+              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Drivers\BSP\TIM;..\Drivers\BSP\TB6612;..\Drivers\BSP\ENCODER;..\Drivers\BSP\OLED;..\Drivers\BSP\IIC_Soft;..\Drivers\BSP\MPU6050;..\Algorithm\KalmanFilter;..\Algorithm\PID</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -568,6 +568,31 @@
               <FileName>bsp_encoder.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\BSP\ENCODER\bsp_encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\BSP\IIC_Soft\bsp_iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\BSP\MPU6050\bsp_mpu6050.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Algorithm</GroupName>
+          <Files>
+            <File>
+              <FileName>kalman_filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Algorithm\KalmanFilter\kalman_filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>car_pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Algorithm\PID\car_pid.c</FilePath>
             </File>
           </Files>
         </Group>

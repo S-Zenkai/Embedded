@@ -86,13 +86,14 @@ void EncoderInit(void)
 
 /**
  * @brief       测量输入信号频率，使用测周法，公式：fx=fc/N，其中，fc为标准频率，也是本文件时基设定的定时器计数频率(72M/PSC)
- *
+ *           这里直接将得到的计数值转为有符号数即可得到电机转速，与编码器模式下计数器计数方式有关（并不是从0~65535）
  * @return      uint32_t ,频率
  */
-double GetSpeed(void)
+int16_t GetSpeed(void)
 {
-    double speed = 0;
-    speed = ((double)TIM_GetCounter(Timx)) / ((double)1320);/*电机一圈11个脉冲，一个脉冲计4次数*/
+    uint16_t speed = 0;
+    // speed = ((double)TIM_GetCounter(Timx)) / ((double)1320);/*电机一圈11个脉冲，一个脉冲计4次数*/
+    speed = TIM_GetCounter(Timx);
     TIM_SetCounter(Timx, 0);
     return speed;
 }

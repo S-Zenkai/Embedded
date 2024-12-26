@@ -51,7 +51,7 @@ static void Tim_TimeBaseConfigure(void)
     /*定时器时钟CK_INT频率与数字滤波器采样频率之间的分频比*/
     TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
     TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    TIM_TimeBaseInitStructure.TIM_Period = (7200/4) - 1;
+    TIM_TimeBaseInitStructure.TIM_Period = (7200) - 1;/*PWM频率设置为10K*/
     TIM_TimeBaseInitStructure.TIM_Prescaler = 1 - 1;
     TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
     TIM_TimeBaseInit(Timx, &TIM_TimeBaseInitStructure);
@@ -68,7 +68,7 @@ static void Tim_OCConfigure(void)
     TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-    TIM_OCInitStructure.TIM_Pulse = 3600; /*可用于设置占空比，在别处设置*/
+    TIM_OCInitStructure.TIM_Pulse = 0; /*可用于设置占空比，在别处设置*/
     PWMA_TIM_OCInitFUN(Timx, &TIM_OCInitStructure);
     PWMB_TIM_OCInitFUN(Timx, &TIM_OCInitStructure);
 }

@@ -8,8 +8,8 @@
  * *****************************************************************************
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
 #if 0
 void BubbleSort(int* arr,int sz)
@@ -105,15 +105,112 @@ int main(void)
 
 
 
-int main(void)
-{
-    float a = 10;
-    float b = 10;
-    float c = 3;
-    a = b / c;
-    printf("%f", a);
-}
+// int main(void)
+// {
+//     float a = 10;
+//     float b = 10;
+//     float c = 3;
+//     a = b / c;
+//     printf("%f", a);
+// }
 
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+
+// #define MAX_LENGTH 100
+// #define MAX_ELEMENTS 1000 // 假设最多有这么多个元素，可根据实际情况调整
+
+// int main()
+// {
+//     FILE *fp;
+//     char line[MAX_LENGTH];
+//     char *token;
+//     char data[MAX_ELEMENTS][MAX_LENGTH]; // 一维数组用于存储数据
+//     int index = 0;                       // 用于记录一维数组的存储位置索引
+
+//     // 打开CSV文件
+//     fp = fopen("C:\\Users\\Administrator\\Desktop\\111.csv", "r");
+//     if (fp == NULL)
+//     {
+//         perror("Error opening file");
+//         return 1;
+//     }
+
+//     // 逐行读取文件内容并存储到一维数组
+//     while (fgets(line, MAX_LENGTH, fp) != NULL && index < MAX_ELEMENTS)
+//     {
+//         token = strtok(line, ",");
+//         while (token != NULL && index < MAX_ELEMENTS)
+//         {
+//             strcpy(data[index], token);
+//             index++;
+//             token = strtok(NULL, ",");
+//         }
+//     }
+
+//     // 可以在这里对存储在一维数组中的数据进行操作，比如打印出来查看
+//     // for (int i = 0; i < index; i++)
+//     // {
+//     //     printf("%s ", data[i]);
+//     // }
+//     // printf("\n");
+//     printf("index=%d", index);
+//     int j = 1;
+//     for (int i = 0; i < index-1;i++)
+//     {
+//         if (data[i] != data[i+1])
+//         {
+//             j++;
+//         }
+//     }
+//     printf("j=%d", j++);
+
+//     // 关闭文件
+//     fclose(fp);
+//     return 0;
+// }
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LENGTH 100
+#define MAX_ELEMENTS 1000  // 假设最多有这么多个元素，可根据实际情况调整
+
+int main() {
+    FILE *fp;
+    char line[MAX_LENGTH];
+    char *token;
+    int data[MAX_ELEMENTS];  // int类型的一维数组用于存储数据
+    int index = 0;  // 用于记录一维数组的存储位置索引
+
+    // 打开CSV文件
+    fp = fopen("C:\\Users\\Administrator\\Desktop\\111.csv", "r");
+    if (fp == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    // 逐行读取文件内容并转换存储到int类型的一维数组
+    while (fgets(line, MAX_LENGTH, fp)!= NULL && index < MAX_ELEMENTS) {
+        token = strtok(line, ",");
+        while (token!= NULL && index < MAX_ELEMENTS) {
+            data[index] = atoi(token);  // 使用atoi函数将字符串转换为整数并存储
+            index++;
+            token = strtok(NULL, ",");
+        }
+    }
+
+    // 可以在这里对存储在int类型一维数组中的数据进行操作，比如打印出来查看
+    for (int i = 0; i < index; i++) {
+        printf("data[%d]: %d\n", i, data[i]);
+    }
+
+    // 关闭文件
+    fclose(fp);
+    return 0;
+}
 #endif
 
 

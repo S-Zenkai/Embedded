@@ -35,7 +35,7 @@
 /*----------------------------------function----------------------------------*/
 void EncoderInit(void);
 // int16_t GetSpeed(void);
-double GetSpeed(void);
+int16_t GetSpeed(void);
 /*------------------------------------test------------------------------------*/
 
 #endif /* __BSP_ENCODER_H */
