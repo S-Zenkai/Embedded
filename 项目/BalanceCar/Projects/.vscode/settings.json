@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "bsp_sys.h": "c",
+        "bsp_systick.h": "c",
+        "bsp_usart.h": "c",
+        "bsp_pwm.h": "c",
+        "bsp_tb6612.h": "c",
+        "stm32f10x_rcc.h": "c",
+        "stm32f10x.h": "c",
+        "stm32f10x_tim.h": "c",
+        "bsp_tim.h": "c",
+        "stm32f10x_gpio.h": "c",
+        "bsp_encoder.h": "c",
+        "kalman_filter.h": "c",
+        "bsp_mpu6050.h": "c",
+        "oled.h": "c",
+        "math.h": "c",
+        "car_pid.h": "c",
+        "stm32f10x_adc.h": "c",
+        "stm32f10x_usart.h": "c",
+        "stdio.h": "c"
+    }
+}

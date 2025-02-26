@@ -1,0 +1,5 @@
+如何安装中科芯32位MCU插件 2018-08-28 360
+
+1、下载“资料中心”的“中科芯32位MCU的Keil插件”压缩包；
+2、在keil 5.23版本的环境下，到安装目录（如C:\Keil_v5\UV4）下找到PACK.xsd文件，在<xs:enumeration value="Atmel:3"/>下一行添加：<xs:enumeration value="CKS:150"/>；
+3、安装插件Keil.CS32F1xx_DFP.pack

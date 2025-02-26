@@ -1,0 +1,19 @@
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\AppData\keil_v5\ARM\ARMCC\Bin'
+Build target 'oled'
+compiling bsp_i2c.c...
+..\User\./I2C_Software/bsp_i2c.h(55): error:  #147-D: declaration is incompatible with "void I2C_Init(I2C_TypeDef *, I2C_InitTypeDef *)"  (declared at line 535 of "..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h")
+  void I2C_Init(void);
+..\User\I2C_Software\bsp_i2c.c: 0 warnings, 1 error
+compiling bsp_oled.c...
+..\User\./I2C_Software/bsp_i2c.h(55): error:  #147-D: declaration is incompatible with "void I2C_Init(I2C_TypeDef *, I2C_InitTypeDef *)"  (declared at line 535 of "..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h")
+  void I2C_Init(void);
+..\User\OLED\bsp_oled.c(577): warning:  #223-D: function "strcmp" declared implicitly
+  	while (strcmp(OLED_CF16x16[pindex], "") == 0)
+..\User\OLED\bsp_oled.c(577): error:  #20: identifier "OLED_CF16x16" is undefined
+  	while (strcmp(OLED_CF16x16[pindex], "") == 0)
+..\User\OLED\bsp_oled.c(576): warning:  #177-D: variable "i"  was declared but never referenced
+  	uint8_t i = 0;
+..\User\OLED\bsp_oled.c: 2 warnings, 2 errors
+".\Objects\oled.axf" - 3 Error(s), 2 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:01

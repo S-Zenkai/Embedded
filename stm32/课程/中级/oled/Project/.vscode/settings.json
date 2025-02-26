@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "files.associations": {
+        "bsp_oled.h": "c",
+        "bsp_i2c.h": "c"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "stm32f10x_tim.h": "c",
+        "bsp_tim.h": "c",
+        "bsp_pwm.h": "c",
+        "stm32f10x_rcc.h": "c",
+        "stm32f10x.h": "c",
+        "stm32f10x_gpio.h": "c",
+        "bsp_led.h": "c",
+        "oled.h": "c",
+        "bsp_ic.h": "c",
+        "bsp_encoder.h": "c"
+    }
+}

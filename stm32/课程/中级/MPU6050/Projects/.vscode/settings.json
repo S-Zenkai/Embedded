@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "stm32f10x_tim.h": "c",
+        "bsp_tim.h": "c",
+        "bsp_pwm.h": "c",
+        "stm32f10x_rcc.h": "c",
+        "stm32f10x.h": "c",
+        "stm32f10x_gpio.h": "c",
+        "bsp_led.h": "c",
+        "oled.h": "c",
+        "bsp_ic.h": "c",
+        "bsp_adc.h": "c",
+        "stm32f10x_adc.h": "c",
+        "bsp_dma.h": "c",
+        "stm32f10x_dma.h": "c",
+        "bsp_iic.h": "c",
+        "bsp_mpu6050.h": "c",
+        "stm32f10x_i2c.h": "c",
+        "string": "c",
+        "array": "c",
+        "string_view": "c"
+    }
+}
