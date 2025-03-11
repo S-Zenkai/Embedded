@@ -1,161 +1,116 @@
 /**
- * *****************************************************************************
- * @file        bsp_spi.c
- * @brief       
- * @author      S-Zenkai (1747098083@qq.com)
- * @date        2025-01-24
- * @version     0.1
- * @copyright   
- * *****************************************************************************
- * @attention  
- * 
- * ÂÆûÈ™åÂπ≥Âè∞:
- * 
- * *****************************************************************************
- */
-/*----------------------------------include-----------------------------------*/
+  ******************************************************************************
+  * @file    bsp_spi.c
+  * @author  kai
+  * @version V1.0.0
+  * @data    2025/02/28
+  * @brief   spi«˝∂ØŒƒº˛
+  ******************************************************************************
+  * @attention
+  *
+  * 
+  *
+  ******************************************************************************
+  */
+/* Includes ------------------------------------------------------------------*/
 #include "bsp_spi.h"
-/*-----------------------------------macro------------------------------------*/
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+/* Private function prototypes -----------------------------------------------*/
+/* Private functions ---------------------------------------------------------*/
 
-/*----------------------------------typedef-----------------------------------*/
-
-/*----------------------------------variable----------------------------------*/
-
-/*-------------------------------------os-------------------------------------*/
-
-/*----------------------------------function----------------------------------*/
-
-#if 0
-void gpio_configure(uint8_t spi_cs)
-{
-    GPIO_InitTypeDef GPIO_InitStructure;
-    if(spi_cs==MPU_SPI_CS)
-    {
-        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOC, ENABLE);
-    }
-    /*SCKÔºåÂ§çÁî®Êé®ÊåΩËæìÂá∫*/
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_High_Speed;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-    GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_SPI1);
-    /*MOSIÔºåÂ§çÁî®Êé®ÊåΩËæìÂá∫*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-    GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_SPI1);
-
-    /*MISOÔºåÊµÆÁ©∫ËæìÂÖ•*/
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-    /*CSÔºåÊé®ÊåΩËæìÂá∫*/
-    if(spi_cs==MPU_SPI_CS)
-    {
-        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-        GPIO_Init(GPIOC, &GPIO_InitStructure);
-    }
-}
-#endif
-
-void gpio_configure(uint8_t spi_cs)
+/**
+  * @brief  SPIœ‡πÿGPIO≥ı ºªØ
+  * @note   Œﬁ 
+  * @param  Œﬁ
+  * @retval Œﬁ
+  */
+static void SPI_GPIO_Configure(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOC, ENABLE);
+    /*SCK(PA5)*/
+    /*∏¥”√Õ∆ÕÏ ‰≥ˆ*/
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+    GPIO_InitStructure.GPIO_Speed = GPIO_High_Speed;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    /*MOSI*(PA7)*/
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    /*MISO(PA6)*/
+    /*SPI MISOƒ‹Õ®–≈µƒπÿº¸ «≈‰÷√Œ™∏¥”√£¨≈‰÷√GPIO_PuPd_NOPULL”¶∏√ «¥˙±Ì∏°ø’£¨”…Õ‚…Ëøÿ÷∆ ‰»Î*/
+    /*GPIO_Mode_AF”≈œ»º∂¥Û”⁄GPIO_OType_PP£¨π ∏√ƒ£ Ω≈‰÷√µƒ≤ª «∏¥”√Õ∆ÕÏ£¨∂¯ «”…Õ‚…Ëøÿ÷∆µƒ∏°ø’ ‰»Î*/
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    /*∏¥”√≈‰÷√*/
     GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_SPI1);
     GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_SPI1);
     GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_SPI1);
-
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    // GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;/*GPIOÂ∑•‰Ωú‰∫éËæìÂá∫Ê®°ÂºèÊó∂ÈªòËÆ§‰∏ãÊãâÔºà‰ΩéÁîµÂπ≥ÔºâÔºåÂç≥‰ΩøËÆæÁΩÆ‰∏∫‰∏äÊãâ‰∏çÂΩ±ÂìçÂºïËÑöÈªòËÆ§ÁîµÂπ≥Áä∂ÊÄÅ*/
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_7;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_6;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-    // GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_SPI1);
-    // GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_SPI1);
-    // GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_SPI1);
-
-    // if(spi_cs==MPU_SPI_CS)
-    // {
-    // GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-    // GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-    // GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    // GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    // GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-    // GPIO_Init(GPIOC, &GPIO_InitStructure);
-    // }
-
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+    /*CS(PC2)*/
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-    // GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
-    // GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    // GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+    GPIO_InitStructure.GPIO_Speed = GPIO_High_Speed;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
-
-    /*ÈôÑÂä†*/
-    MPU_SPI_CS_H;
-    // GPIO_SetBits(GPIOA,GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
+    SPI_CS_H;
 }
 
-void spi_configure(void)
+/**
+  * @brief  SPI≈‰÷√
+  * @note   Œﬁ
+  * @param  Œﬁ
+  * @retval Œﬁ
+  */
+static void SPI_Configure(void)
 {
     SPI_InitTypeDef SPI_InitStructure;
-    /*ÈôÑÂä†*/
-    SPI_Cmd(SPI1,DISABLE);
-
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
-    /*ÊúÄÂ§ßÊó∂ÈíüÈ¢ëÁéá1M*/
-    SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;/*Êúâ‰∫õ‰∏çÂêå*/
-    /*MPU6000ÊîØÊåÅÊ®°Âºè0ÂíåÊ®°Âºè3*/
+    /*MPU6000µƒSPI◊Ó¥Û ±÷”∆µ¬ 1M*/
+    SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;
+    /*MPU6000÷ß≥÷ƒ£ Ω0∫Õƒ£ Ω3*/
     SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
     SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
-    // SPI_InitStructure.SPI_CRCPolynomial = ;
+    SPI_InitStructure.SPI_CRCPolynomial = 0;
     SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
     SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
     SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
     SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
-    SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;/*ËøôÈáåÂéüÂÖà‰ΩøÁî®ÁöÑÊòØÁ°¨‰ª∂*/
-    SPI_InitStructure.SPI_CRCPolynomial=10;
+    SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
     SPI_Init(SPI1, &SPI_InitStructure);
+}
+
+/**
+  * @brief  SPI≥ı ºªØ
+  * @note   Œﬁ   
+  * @param  Œﬁ
+  * @retval Œﬁ
+  */
+void spi_init(void)
+{
+    SPI_GPIO_Configure();
+    SPI_Configure();
     SPI_Cmd(SPI1, ENABLE);
-//    SPI1_Read_Write_Byte(0xff);
 }
 
-void spiinit(uint8_t spi_cs)
+/**
+  * @brief  Õ®π˝SPI∑¢ÀÕΩ” ’“ª∏ˆ ˝æ›
+  * @note   “ÚŒ™SPIπ§◊˜”⁄»´À´π§ƒ£ Ω£¨∑¢ÀÕ“ª∏ˆ◊÷Ω⁄∫Û±ÿ»ªª·Ω” ’“ª∏ˆ◊÷Ω⁄°£
+  * @param  data£∫“™∑¢ÀÕµƒ ˝æ›
+  * @retval Ω” ’µΩµƒ ˝æ›
+  */
+uint8_t SPI_TansmissionReceiveByte(uint8_t data)
 {
-	// if(spi_cs==MPU_SPI_CS)
-    // {
-    //     gpio_configure(MPU_SPI_CS);
-    //     spi_configure();
-        
-    // }
-    gpio_configure(MPU_SPI_CS);
-        spi_configure();
-}
-
-uint8_t spi_tansmission_receive_byte(uint8_t data)
-{
-    uint16_t ret;
-    while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE)==RESET)
-        ;
+    while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET)
+      ;
     SPI_I2S_SendData(SPI1, data);
-    while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE)==RESET)
-        ;
-    ret = SPI_I2S_ReceiveData(SPI1);
-    return ret;
+    while(SPI_I2S_GetFlagStatus(SPI1,SPI_I2S_FLAG_RXNE) == RESET)
+      ;
+    return SPI_I2S_ReceiveData(SPI1);
 }
-
-/*------------------------------------test------------------------------------*/
 

@@ -82,7 +82,7 @@ static void USART7_Configure(void)
     GPIO_PinAFConfig(GPIOE,GPIO_PinSource8,GPIO_AF_UART7);
     GPIO_PinAFConfig(GPIOE,GPIO_PinSource7,GPIO_AF_UART7);
     /*USART配置*/
-    USART_InitStructure.USART_BaudRate = 115200;/*波特率*/
+    USART_InitStructure.USART_BaudRate = 230400;/*波特率*/
     USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;/*硬件流控制*/
     USART_InitStructure.USART_Mode = USART_Mode_Rx|USART_Mode_Tx;/*发送与接收模式*/
     USART_InitStructure.USART_Parity = USART_Parity_No;/*奇偶校验模式*/
@@ -125,6 +125,26 @@ uint8_t USARTx_ReceiveByte(USART_TypeDef* USARTx)
         ;
     return data;
 }
+
+
+void Usart_SendHalfWord( USART_TypeDef * pUSARTx, uint16_t ch)
+{
+	uint8_t temp_h, temp_l;
+	
+	/* 取出高八位 */
+	temp_h = (ch&0XFF00)>>8;
+	/* 取出低八位 */
+	temp_l = ch&0XFF;
+	
+	/* 发送高八位 */
+	USART_SendData(pUSARTx,temp_h);	
+	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) == RESET);
+	
+	/* 发送低八位 */
+	USART_SendData(pUSARTx,temp_l);	
+	while (USART_GetFlagStatus(pUSARTx, USART_FLAG_TXE) == RESET);	
+}
+
 
 void USART7_IRQHandler(void)
 {

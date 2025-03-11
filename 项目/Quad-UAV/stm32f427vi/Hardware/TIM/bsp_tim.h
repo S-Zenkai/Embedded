@@ -1,7 +1,7 @@
 #ifndef __BSP_TIM_H 
 #define __BSP_TIM_H 
 /*----------------------------------include-----------------------------------*/
-#include "stm32f10x.h"
+#include "stm32f4xx.h"
 /*-----------------------------------macro------------------------------------*/
 /*TIM输出比较相关GPIO宏*/
 #define                 PWMx_TIM_GPIO_CLK_FUN           RCC_APB2PeriphClockCmd
@@ -18,6 +18,8 @@
 #define                 PWMB_TIM_OCInitFUN              TIM_OC2Init
 /*----------------------------------function----------------------------------*/
 void Tim_OCInit(void);
+void timer_tbinit(void);
+void timer_ti_init(void);
 /*------------------------------------test------------------------------------*/
 
 #endif	/* __BSP_TIM_H */

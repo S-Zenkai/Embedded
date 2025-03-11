@@ -43,6 +43,7 @@
 void USARTInit(void);
 void USARTx_SendByte(USART_TypeDef *USARTx, uint16_t Data);
 uint8_t USARTx_ReceiveByte(USART_TypeDef *USARTx);
+void Usart_SendHalfWord(USART_TypeDef *pUSARTx, uint16_t ch);
 /*------------------------------------test------------------------------------*/
 
 

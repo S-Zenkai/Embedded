@@ -1,25 +1,70 @@
 /**
- * *****************************************************************************
- * @file        bsp_mpu6000.h
- * @brief       
- * @author      S-Zenkai (1747098083@qq.com)
- * @date        2025-01-26
- * @version     0.1
- * @copyright   
- * *****************************************************************************
- * @attention  
- * 
- * 实验平台:
- * 
- * *****************************************************************************
- */
+  ******************************************************************************
+  * @file    bsp_mpu6000.h
+  * @author  kai
+  * @version V1.0.0
+  * @data    2025/02/28
+  * @brief   
+  ******************************************************************************
+  * @attention
+  *
+  * 
+  *
+  ******************************************************************************
+  */
+ /* Define to prevent recursive inclusion -------------------------------------*/
+ #ifndef __BSP_MPU6000_H
+ #define __BSP_MPU6000_H
+ /* Includes ------------------------------------------------------------------*/
+ #include "stm32f4xx.h"
+ 
+ /* Exported types ------------------------------------------------------------*/
+ typedef struct
+{
+    int16_t ACCEL_XOUT;
+    int16_t ACCEL_YOUT;
+    int16_t ACCEL_ZOUT;
+    int16_t GYRO_XOUT;
+    int16_t GYRO_YOUT;
+    int16_t GYRO_ZOUT;
+} MPU6000_DataTypedef;
 
-#ifndef __BSP_MPU6000_H 
-#define __BSP_MPU6000_H 
-/*----------------------------------include-----------------------------------*/
-#include "stm32f4xx.h"
-/*-----------------------------------macro------------------------------------*/
-/*mpu6000寄存器*/
+/*利用联合体共用一块内存特性，x=acc_arr[0],y=acc_arr[1],z=acc_arr[2]*/
+typedef union
+{
+    struct
+    {
+        int16_t x;
+        int16_t y;
+        int16_t z;
+    };
+    int16_t axis[3];
+} MPU6000Raw3axis_t;
+
+typedef union
+{
+    struct
+    {
+        float x;
+        float y;
+        float z;
+    };
+    float axis[3];
+} MPU60003axis_t;
+/*MPU6000存储数据结构体*/
+typedef struct
+{
+    MPU6000Raw3axis_t AccRaw;/*原始数据*/
+    MPU6000Raw3axis_t GyroRaw;
+    MPU60003axis_t Acc;/*经处理的数据*/
+    MPU60003axis_t Gyro;
+} MPU6000Data_t;
+
+/* Exported variables --------------------------------------------------------*/
+
+
+
+/* Exported macro ------------------------------------------------------------*/
 #define     MPU6000_WHO_AM_I                0x75
 #define     MPU6000_PWR_MGMT_1              0x6B
 #define     MPU6000_PWR_MGMT_2              0x6C
@@ -42,30 +87,15 @@
 #define     MPU6000_GYRO_ZOUT_H            0x47
 #define     MPU6000_GYRO_ZOUT_L            0x48
 
-/*----------------------------------typedef-----------------------------------*/
-/**
- * @brief       MPU6000测量数据结构体定义
- * 
- */
-typedef struct
-{
-    int16_t ACCEL_XOUT;
-    int16_t ACCEL_YOUT;
-    int16_t ACCEL_ZOUT;
-    int16_t GYRO_XOUT;
-    int16_t GYRO_YOUT;
-    int16_t GYRO_ZOUT;
-} MPU6000_DataTypedef;
-/*----------------------------------variable----------------------------------*/
+#define     MPU6000_INT_STATUS             0X3A
+#define     MPU6000_INT_ENABLE             0X38
+#define     MPU6000_INT_PIN_CFG            0X37
 
-/*-------------------------------------os-------------------------------------*/
-
-/*----------------------------------function----------------------------------*/
-// void MPU6000_WriteReg(uint8_t reg, uint8_t data);
-uint8_t MPU6000_Write_ReadReg(uint8_t reg);
+ /* Exported functions ------------------------------------------------------- */
+void MPU6000_WriteReg(uint8_t reg, uint8_t data);
 uint8_t MPU6000_ReadReg(uint8_t reg);
 void mpu6000_init(void);
-void MPU6000GetData(MPU6000_DataTypedef *MPU6000_DataStruct);
-/*------------------------------------test------------------------------------*/
-
-#endif	/* __BSP_MPU6000_H */
+void MPU6000_GetData(MPU6000Data_t *MPU6000_Data);
+void MPU6000_ProcessingData(MPU6000Data_t *MPU6000_Data);
+#endif /* __BSP_MPU6000_H */
+ 

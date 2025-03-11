@@ -11,6 +11,12 @@
         "main.h": "c",
         "stdio.h": "c",
         "bsp_systick.h": "c",
-        "stm32f4xx_gpio.h": "c"
+        "stm32f4xx_gpio.h": "c",
+        "random": "c",
+        "bsp_tim.h": "c",
+        "stm32f4xx_tim.h": "c",
+        "stm32f4xx_exti.h": "c",
+        "bsp_exti.h": "c",
+        "variant": "c"
     }
 }
