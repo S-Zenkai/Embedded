@@ -14,7 +14,6 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "sbus.h"
-#include "globle.h"
 #include "bsp_tim.h"
 #include "bsp_usart.h"
 #include "bsp_dma.h"

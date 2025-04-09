@@ -1,7 +1,7 @@
 ..\output\main.o: ..\User\main.c
 ..\output\main.o: ..\Drivers\CMSIS\stm32f10x.h
 ..\output\main.o: ..\Drivers\CMSIS\core_cm3.h
-..\output\main.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\main.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\output\main.o: ..\Drivers\CMSIS\system_stm32f10x.h
 ..\output\main.o: ..\User\stm32f10x_conf.h
 ..\output\main.o: ..\Drivers\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -31,6 +31,7 @@
 ..\output\main.o: ..\Drivers\BSP\OLED\OLED.h
 ..\output\main.o: ..\Drivers\BSP\OLED\OLED_Data.h
 ..\output\main.o: ..\Drivers\BSP\USART\bsp_usart.h
-..\output\main.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\output\main.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\output\main.o: ..\Drivers\BSP\TIM\bsp_pwm.h
 ..\output\main.o: ..\Drivers\BSP\TIM\bsp_ic.h
+..\output\main.o: ..\Drivers\BSP\SYSTICK\bsp_systick.h

@@ -42,7 +42,7 @@
 int main(void)
 {
     bool decode_status;
-    uint16_t pwm_buff[9];      /*9通道*/
+    uint16_t pwm_buff[RC_PWM_CHANNELS];      /*9通道*/
     RCC_ClocksTypeDef RCC_Clocks;
     RCC_GetClocksFreq(&RCC_Clocks);
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); /*在整个项目使用一次即可*/
@@ -54,13 +54,12 @@ int main(void)
         if(sbus_DF_TC==SET)
         {
             sbus_DF_TC = RESET;
-            decode_status = sbus_decode(sbus_buff[active_buff ^ 1], pwm_buff, 9);
+            decode_status = sbus_decode(sbus_buff[active_buff ^ 1], pwm_buff, RC_PWM_CHANNELS);
             if(decode_status==true)
             {
-    
+                set_pwm(pwm_buff);
             }
         }
-        
     }
 }
 
@@ -69,3 +68,23 @@ int main(void)
  */
 
 /* Includes ------------------------------------------------------------------*/
+
+/* Includes ------------------------------------------------------------------*/
+
+
+/** @addtogroup Template_Project
+* @{
+*/ 
+
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+/* Private function prototypes -----------------------------------------------*/
+/* Private functions ---------------------------------------------------------*/
+
+
+/**
+  * @}
+  */ 
+

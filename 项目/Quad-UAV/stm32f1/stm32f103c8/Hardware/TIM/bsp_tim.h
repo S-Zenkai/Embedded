@@ -19,6 +19,7 @@
 /*----------------------------------function----------------------------------*/
 void timer_init(void);
 uint64_t timer_GetTick(void);
+void set_pwm(uint16_t *pwm_buff);
 /*------------------------------------test------------------------------------*/
 
 #endif	/* __BSP_TIM_H */

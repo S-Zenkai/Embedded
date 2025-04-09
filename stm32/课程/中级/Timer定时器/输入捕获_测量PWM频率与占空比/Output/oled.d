@@ -1,7 +1,7 @@
 ..\output\oled.o: ..\Drivers\BSP\OLED\OLED.c
 ..\output\oled.o: ..\Drivers\CMSIS\stm32f10x.h
 ..\output\oled.o: ..\Drivers\CMSIS\core_cm3.h
-..\output\oled.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\oled.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\output\oled.o: ..\Drivers\CMSIS\system_stm32f10x.h
 ..\output\oled.o: ..\User\stm32f10x_conf.h
 ..\output\oled.o: ..\Drivers\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -30,7 +30,7 @@
 ..\output\oled.o: ..\Drivers\STM32F10x_StdPeriph_Driver\inc\misc.h
 ..\output\oled.o: ..\Drivers\BSP\OLED\OLED.h
 ..\output\oled.o: ..\Drivers\BSP\OLED\OLED_Data.h
-..\output\oled.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\output\oled.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\math.h
-..\output\oled.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\output\oled.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\output\oled.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\output\oled.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\output\oled.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\output\oled.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

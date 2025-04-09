@@ -2,7 +2,7 @@
 ..\output\bsp_pwm.o: ..\Drivers\BSP\TIM\bsp_pwm.h
 ..\output\bsp_pwm.o: ..\Drivers\CMSIS\stm32f10x.h
 ..\output\bsp_pwm.o: ..\Drivers\CMSIS\core_cm3.h
-..\output\bsp_pwm.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\bsp_pwm.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\output\bsp_pwm.o: ..\Drivers\CMSIS\system_stm32f10x.h
 ..\output\bsp_pwm.o: ..\User\stm32f10x_conf.h
 ..\output\bsp_pwm.o: ..\Drivers\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
