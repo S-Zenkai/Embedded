@@ -38,3 +38,7 @@
 ..\output\bsp_usart.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\output\bsp_usart.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\output\bsp_usart.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\output\bsp_usart.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\output\bsp_usart.o: ..\Hardware\SYSTICK\bsp_systick.h
+..\output\bsp_usart.o: ..\Hardware\SYS\bsp_sys.h
+..\output\bsp_usart.o: ..\Common\GLOBLE\globle.h

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STM324x7I_EVAL, STM32F427_437xx, USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\Common\inc;..\Hardware\SYS;..\Hardware\SYSTICK;..\Hardware\SPI;..\Hardware\MPU6000;..\Hardware\USART;..\Hardware\TIM;..\Hardware\EXTI;..\Hardware\MS5611;..\Communication\SBUS</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\Common\inc;..\Hardware\SYS;..\Hardware\SYSTICK;..\Hardware\SPI;..\Hardware\MPU6000;..\Hardware\USART;..\Hardware\TIM;..\Hardware\EXTI;..\Hardware\MS5611;..\Communication\SBUS;..\Communication\UBX;..\Hardware\NEO_M8N;..\Common\GLOBLE;..\Hardware\DMA;..\Common\FILTER;..\Common\RINGBUFFER</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -881,6 +881,16 @@
               <FileType>1</FileType>
               <FilePath>..\Hardware\MS5611\bsp_ms5611.c</FilePath>
             </File>
+            <File>
+              <FileName>gps.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\NEO_M8N\gps.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\DMA\bsp_dma.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -890,9 +900,19 @@
           <GroupName>Common</GroupName>
           <Files>
             <File>
+              <FileName>globle.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Common\GLOBLE\globle.c</FilePath>
+            </File>
+            <File>
               <FileName>filter.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Common\src\filter.c</FilePath>
+              <FilePath>..\Common\FILTER\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringbuff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Common\RINGBUFFER\ringbuff.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -903,6 +923,11 @@
               <FileName>sbus.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Communication\SBUS\sbus.c</FilePath>
+            </File>
+            <File>
+              <FileName>ubx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Communication\UBX\ubx.c</FilePath>
             </File>
           </Files>
         </Group>

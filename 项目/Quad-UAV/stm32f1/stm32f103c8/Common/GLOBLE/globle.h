@@ -35,6 +35,6 @@
 extern uint8_t sbus_DF_TC;/*一个数据帧(data frame)传输完成标志*/
 extern uint8_t sbus_buff[2][SBUS_INPUT_CHANNELS]; /*多缓冲区,防止解码时数据被覆盖*/
 extern uint8_t active_buff;/*接收缓冲区指针*/
-extern uint8_t pwm_buff[RC_PWM_CHANNELS];
+extern uint16_t pwm_buff[RC_PWM_CHANNELS];
 
 #endif /* __GLOBLE_H */

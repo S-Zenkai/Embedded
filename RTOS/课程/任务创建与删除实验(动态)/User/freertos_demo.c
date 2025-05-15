@@ -69,14 +69,14 @@ void Task3(void* pvParameters);
   */
 void FreeRTOS_demo(void)
 {
-	xTaskCreate(  (TaskFunction_t)           StartTask,                /*任务函数*/
-                (const char *)             "StartTask",              /*任务名*/
-                (configSTACK_DEPTH_TYPE)   StartTask_stack,          /*任务堆栈*/
-                (void *)                   NULL,                     /*任务输入参数*/
-                (UBaseType_t)              StartTask_prio,           /*任务优先级*/
-                (TaskHandle_t *)           &StartTask_handler        /*任务句柄*/ 
-						 );
-	vTaskStartScheduler();
+    xTaskCreate((TaskFunction_t)StartTask,               /*任务函数*/
+                (const char *)"StartTask",               /*任务名*/
+                (configSTACK_DEPTH_TYPE)StartTask_stack, /*任务堆栈*/
+                (void *)NULL,                            /*任务输入参数*/
+                (UBaseType_t)StartTask_prio,             /*任务优先级*/
+                (TaskHandle_t *)&StartTask_handler       /*任务句柄*/
+    );
+    vTaskStartScheduler();
 }
 
 /**

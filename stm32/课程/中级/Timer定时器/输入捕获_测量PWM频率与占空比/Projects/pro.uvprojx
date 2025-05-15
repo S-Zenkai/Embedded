@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\LED;..\Drivers\BSP\OLED;..\Drivers\BSP\TIM;..\Drivers\BSP\PWM;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\SYS;..\Drivers\BSP\USART</IncludePath>
+              <IncludePath>..\Drivers\CMSIS;..\Drivers\STM32F10x_StdPeriph_Driver\inc;..\User;..\Drivers\BSP\SYS;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\USART;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Drivers\BSP\LED;..\Drivers\BSP\OLED;..\Drivers\BSP\TIM;..\Drivers\BSP\PWM;..\Drivers\BSP\SYSTICK;..\Drivers\BSP\SYS;..\Drivers\BSP\USART;..\Drivers\BSP\新建文件夹</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -558,6 +558,11 @@
               <FileName>bsp_ic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\BSP\TIM\bsp_ic.c</FilePath>
+            </File>
+            <File>
+              <FileName>outputdata.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\BSP\新建文件夹\outputdata.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -75,6 +75,10 @@ static int ms5611_crc4(uint16_t *n_prom)
 unsigned char crc;
 int main(void)
 {
+		RCC_ClocksTypeDef RCC_Clocks;
+
+    // 获取系统时钟频率
+    RCC_GetClocksFreq(&RCC_Clocks);
     ms5611param_t param_s;
     SystickInit(180);
     USARTInit();
@@ -94,7 +98,7 @@ int main(void)
     {
         ms5611_GetData(&param_s);
         ms5611_CalculateAltitude(&param_s);
-        //printf("%f,", param_s.temp);
+        printf("%f,", param_s.temp);
         
         delay_ms(10);
     }

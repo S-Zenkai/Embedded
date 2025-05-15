@@ -1,4 +1,4 @@
-;******************** (C) COPYRIGHT 2016 STMicroelectronics ********************
+ ;******************** (C) COPYRIGHT 2016 STMicroelectronics ********************
 ;* File Name          : startup_stm32f427_437xx.s
 ;* Author             : MCD Application Team
 ;* @version           : V1.8.1

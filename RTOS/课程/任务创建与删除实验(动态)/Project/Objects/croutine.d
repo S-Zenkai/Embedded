@@ -1,7 +1,7 @@
 .\objects\croutine.o: ..\FreeRTOS\croutine.c
 .\objects\croutine.o: ..\FreeRTOS\include\FreeRTOS.h
-.\objects\croutine.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\croutine.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\croutine.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\croutine.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\croutine.o: ..\User\FreeRTOSConfig.h
 .\objects\croutine.o: ..\User\SYS\bsp_sys.h
 .\objects\croutine.o: ..\Libraries\CMSIS\stm32f10x.h
@@ -33,7 +33,7 @@
 .\objects\croutine.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\croutine.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\croutine.o: ..\User\USART\bsp_usart.h
-.\objects\croutine.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\croutine.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\croutine.o: ..\FreeRTOS\include\projdefs.h
 .\objects\croutine.o: ..\FreeRTOS\include\portable.h
 .\objects\croutine.o: ..\FreeRTOS\include\deprecated_definitions.h

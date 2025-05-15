@@ -1,8 +1,8 @@
 .\objects\stream_buffer.o: ..\FreeRTOS\stream_buffer.c
-.\objects\stream_buffer.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\stream_buffer.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\stream_buffer.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stream_buffer.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\stream_buffer.o: ..\FreeRTOS\include\FreeRTOS.h
-.\objects\stream_buffer.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\stream_buffer.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\stream_buffer.o: ..\User\FreeRTOSConfig.h
 .\objects\stream_buffer.o: ..\User\SYS\bsp_sys.h
 .\objects\stream_buffer.o: ..\Libraries\CMSIS\stm32f10x.h
@@ -34,7 +34,7 @@
 .\objects\stream_buffer.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\stream_buffer.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\stream_buffer.o: ..\User\USART\bsp_usart.h
-.\objects\stream_buffer.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\stream_buffer.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\stream_buffer.o: ..\FreeRTOS\include\projdefs.h
 .\objects\stream_buffer.o: ..\FreeRTOS\include\portable.h
 .\objects\stream_buffer.o: ..\FreeRTOS\include\deprecated_definitions.h

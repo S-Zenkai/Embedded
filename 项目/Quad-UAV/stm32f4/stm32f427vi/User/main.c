@@ -22,6 +22,8 @@
 #include "bsp_exti.h"
 #include "filter.h"
 #include "bsp_ms5611.h"
+#include "bsp_dma.h"
+#include "ubx.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -32,8 +34,12 @@
 
 int main(void)
 {
+    systick_init();
+    usart_init();
+    dma_init();
+    gps_init();
     while (1)
     {
-        
+        read_rb_process();
     }
 }

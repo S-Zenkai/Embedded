@@ -39,7 +39,9 @@
 ..\output\bsp_ms5611.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\output\bsp_ms5611.o: ..\Hardware\SPI\bsp_spi.h
 ..\output\bsp_ms5611.o: ..\Hardware\SYSTICK\bsp_systick.h
+..\output\bsp_ms5611.o: ..\Hardware\SYS\bsp_sys.h
 ..\output\bsp_ms5611.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-..\output\bsp_ms5611.o: ..\Common\inc\filter.h
+..\output\bsp_ms5611.o: ..\Common\FILTER\filter.h
 ..\output\bsp_ms5611.o: ..\Hardware\USART\bsp_usart.h
 ..\output\bsp_ms5611.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\output\bsp_ms5611.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

@@ -2,7 +2,7 @@
 .\objects\bsp_sys.o: ..\User\SYS\bsp_sys.h
 .\objects\bsp_sys.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp_sys.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\bsp_sys.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_sys.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_sys.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\bsp_sys.o: ..\User\stm32f10x_conf.h
 .\objects\bsp_sys.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h

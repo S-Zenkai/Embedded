@@ -34,6 +34,8 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
+// uint16_t pwm_buff[RC_PWM_CHANNELS];      /*9通道*/
+
 /**
  * @brief  Main program.
  * @param  None
@@ -42,24 +44,25 @@
 int main(void)
 {
     bool decode_status;
-    uint16_t pwm_buff[RC_PWM_CHANNELS];      /*9通道*/
+
     RCC_ClocksTypeDef RCC_Clocks;
     RCC_GetClocksFreq(&RCC_Clocks);
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); /*在整个项目使用一次即可*/
     SystickInit(72);
     sbus_init();
-    timer_init();
+    timer_init(); 
     while (1)
     {
-        if(sbus_DF_TC==SET)
+        if (sbus_DF_TC == SET)
         {
             sbus_DF_TC = RESET;
             decode_status = sbus_decode(sbus_buff[active_buff ^ 1], pwm_buff, RC_PWM_CHANNELS);
-            if(decode_status==true)
-            {
-                set_pwm(pwm_buff);
-            }
+            //            set_pwm(pwm_buff);
         }
+        if(decode_status==true)
+        {
+            set_pwm(pwm_buff);
+        } 
     }
 }
 
@@ -71,10 +74,9 @@ int main(void)
 
 /* Includes ------------------------------------------------------------------*/
 
-
 /** @addtogroup Template_Project
-* @{
-*/ 
+ * @{
+ */
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -83,8 +85,6 @@ int main(void)
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-
 /**
-  * @}
-  */ 
-
+ * @}
+ */

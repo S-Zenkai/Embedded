@@ -147,10 +147,10 @@ Section Cross References
     bsp_tim.o(i.Timer2_4_OCConfigure) refers to stm32f10x_tim.o(i.TIM_OC2Init) for TIM_OC2Init
     bsp_tim.o(i.Timer2_4_OCConfigure) refers to stm32f10x_tim.o(i.TIM_OC3Init) for TIM_OC3Init
     bsp_tim.o(i.Timer2_4_OCConfigure) refers to stm32f10x_tim.o(i.TIM_OC4Init) for TIM_OC4Init
+    bsp_tim.o(i.Timer2_4_OCConfigure) refers to stm32f10x_tim.o(i.TIM_Cmd) for TIM_Cmd
     bsp_tim.o(i.Timer2_4_TBConfigure) refers to stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
     bsp_tim.o(i.Timer2_4_TBConfigure) refers to stm32f10x_tim.o(i.TIM_InternalClockConfig) for TIM_InternalClockConfig
     bsp_tim.o(i.Timer2_4_TBConfigure) refers to stm32f10x_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
-    bsp_tim.o(i.Timer2_4_TBConfigure) refers to stm32f10x_tim.o(i.TIM_Cmd) for TIM_Cmd
     bsp_tim.o(i.set_pwm) refers to stm32f10x_tim.o(i.TIM_SetCompare1) for TIM_SetCompare1
     bsp_tim.o(i.set_pwm) refers to stm32f10x_tim.o(i.TIM_SetCompare2) for TIM_SetCompare2
     bsp_tim.o(i.set_pwm) refers to stm32f10x_tim.o(i.TIM_SetCompare3) for TIM_SetCompare3
@@ -802,9 +802,9 @@ Image Symbol Table
     i.Timer2_4_GPIOConfigure                 0x08000ccc   Section        0  bsp_tim.o(i.Timer2_4_GPIOConfigure)
     Timer2_4_GPIOConfigure                   0x08000ccd   Thumb Code   140  bsp_tim.o(i.Timer2_4_GPIOConfigure)
     i.Timer2_4_OCConfigure                   0x08000d60   Section        0  bsp_tim.o(i.Timer2_4_OCConfigure)
-    Timer2_4_OCConfigure                     0x08000d61   Thumb Code    96  bsp_tim.o(i.Timer2_4_OCConfigure)
-    i.Timer2_4_TBConfigure                   0x08000dc8   Section        0  bsp_tim.o(i.Timer2_4_TBConfigure)
-    Timer2_4_TBConfigure                     0x08000dc9   Thumb Code   112  bsp_tim.o(i.Timer2_4_TBConfigure)
+    Timer2_4_OCConfigure                     0x08000d61   Thumb Code   120  bsp_tim.o(i.Timer2_4_OCConfigure)
+    i.Timer2_4_TBConfigure                   0x08000de0   Section        0  bsp_tim.o(i.Timer2_4_TBConfigure)
+    Timer2_4_TBConfigure                     0x08000de1   Thumb Code    88  bsp_tim.o(i.Timer2_4_TBConfigure)
     i.USART3_IRQHandler                      0x08000e40   Section        0  bsp_usart.o(i.USART3_IRQHandler)
     i.USART_Cmd                              0x08000eec   Section        0  stm32f10x_usart.o(i.USART_Cmd)
     i.USART_Configure                        0x08000f04   Section        0  bsp_usart.o(i.USART_Configure)
@@ -823,13 +823,13 @@ Image Symbol Table
     i.__scatterload_zeroinit                 0x0800114a   Section       14  handlers.o(i.__scatterload_zeroinit)
     i.dma_init                               0x08001158   Section        0  bsp_dma.o(i.dma_init)
     i.main                                   0x08001160   Section        0  main.o(i.main)
-    i.sbus_decode                            0x080011c4   Section        0  sbus.o(i.sbus_decode)
-    i.sbus_init                              0x08001298   Section        0  sbus.o(i.sbus_init)
-    i.set_pwm                                0x080012a4   Section        0  bsp_tim.o(i.set_pwm)
-    i.timer_init                             0x080012f8   Section        0  bsp_tim.o(i.timer_init)
-    i.usart_init                             0x08001310   Section        0  bsp_usart.o(i.usart_init)
-    .constdata                               0x08001320   Section      192  sbus.o(.constdata)
-    SBUS_Decoder                             0x08001320   Data         192  sbus.o(.constdata)
+    i.sbus_decode                            0x080011c8   Section        0  sbus.o(i.sbus_decode)
+    i.sbus_init                              0x0800129c   Section        0  sbus.o(i.sbus_init)
+    i.set_pwm                                0x080012a8   Section        0  bsp_tim.o(i.set_pwm)
+    i.timer_init                             0x080012fc   Section        0  bsp_tim.o(i.timer_init)
+    i.usart_init                             0x08001314   Section        0  bsp_usart.o(i.usart_init)
+    .constdata                               0x08001324   Section      192  sbus.o(.constdata)
+    SBUS_Decoder                             0x08001324   Data         192  sbus.o(.constdata)
     .data                                    0x20000000   Section       20  stm32f10x_rcc.o(.data)
     APBAHBPrescTable                         0x20000000   Data          16  stm32f10x_rcc.o(.data)
     ADCPrescTable                            0x20000010   Data           4  stm32f10x_rcc.o(.data)
@@ -838,8 +838,8 @@ Image Symbol Table
     g_fac_us                                 0x20000016   Data           2  bsp_systick.o(.data)
     .data                                    0x20000018   Section        4  bsp_tim.o(.data)
     .data                                    0x2000001c   Section        2  globle.o(.data)
-    .bss                                     0x20000020   Section       59  globle.o(.bss)
-    STACK                                    0x20000060   Section     1024  startup_stm32f10x_md.o(STACK)
+    .bss                                     0x20000020   Section       68  globle.o(.bss)
+    STACK                                    0x20000068   Section     1024  startup_stm32f10x_md.o(STACK)
 
     Global Symbols
 
@@ -969,21 +969,21 @@ Image Symbol Table
     __scatterload_null                       0x08001149   Thumb Code     2  handlers.o(i.__scatterload_null)
     __scatterload_zeroinit                   0x0800114b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
     dma_init                                 0x08001159   Thumb Code     8  bsp_dma.o(i.dma_init)
-    main                                     0x08001161   Thumb Code    86  main.o(i.main)
-    sbus_decode                              0x080011c5   Thumb Code   194  sbus.o(i.sbus_decode)
-    sbus_init                                0x08001299   Thumb Code    12  sbus.o(i.sbus_init)
-    set_pwm                                  0x080012a5   Thumb Code    74  bsp_tim.o(i.set_pwm)
-    timer_init                               0x080012f9   Thumb Code    24  bsp_tim.o(i.timer_init)
-    usart_init                               0x08001311   Thumb Code    16  bsp_usart.o(i.usart_init)
-    Region$$Table$$Base                      0x080013e0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001400   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08001161   Thumb Code    88  main.o(i.main)
+    sbus_decode                              0x080011c9   Thumb Code   194  sbus.o(i.sbus_decode)
+    sbus_init                                0x0800129d   Thumb Code    12  sbus.o(i.sbus_init)
+    set_pwm                                  0x080012a9   Thumb Code    76  bsp_tim.o(i.set_pwm)
+    timer_init                               0x080012fd   Thumb Code    24  bsp_tim.o(i.timer_init)
+    usart_init                               0x08001315   Thumb Code    16  bsp_usart.o(i.usart_init)
+    Region$$Table$$Base                      0x080013e4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001404   Number         0  anon$$obj.o(Region$$Table)
     counter                                  0x20000014   Data           1  bsp_usart.o(.data)
     overflow_counter                         0x20000018   Data           4  bsp_tim.o(.data)
     sbus_DF_TC                               0x2000001c   Data           1  globle.o(.data)
     active_buff                              0x2000001d   Data           1  globle.o(.data)
     sbus_buff                                0x20000020   Data          50  globle.o(.bss)
-    pwm_buff                                 0x20000052   Data           9  globle.o(.bss)
-    __initial_sp                             0x20000460   Data           0  startup_stm32f10x_md.o(STACK)
+    pwm_buff                                 0x20000052   Data          18  globle.o(.bss)
+    __initial_sp                             0x20000468   Data           0  startup_stm32f10x_md.o(STACK)
 
 
 
@@ -993,9 +993,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001420, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001424, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001400, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001404, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1069,8 +1069,8 @@ Memory Map of the image
     0x08000c72   0x08000c72   0x00000002   PAD
     0x08000c74   0x08000c74   0x00000058   Code   RO         3310    i.Timer1_TBConfigure  bsp_tim.o
     0x08000ccc   0x08000ccc   0x00000094   Code   RO         3311    i.Timer2_4_GPIOConfigure  bsp_tim.o
-    0x08000d60   0x08000d60   0x00000068   Code   RO         3312    i.Timer2_4_OCConfigure  bsp_tim.o
-    0x08000dc8   0x08000dc8   0x00000078   Code   RO         3313    i.Timer2_4_TBConfigure  bsp_tim.o
+    0x08000d60   0x08000d60   0x00000080   Code   RO         3312    i.Timer2_4_OCConfigure  bsp_tim.o
+    0x08000de0   0x08000de0   0x00000060   Code   RO         3313    i.Timer2_4_TBConfigure  bsp_tim.o
     0x08000e40   0x08000e40   0x000000ac   Code   RO         3220    i.USART3_IRQHandler  bsp_usart.o
     0x08000eec   0x08000eec   0x00000018   Code   RO         2834    i.USART_Cmd         stm32f10x_usart.o
     0x08000f04   0x08000f04   0x0000005c   Code   RO         3221    i.USART_Configure   bsp_usart.o
@@ -1087,30 +1087,30 @@ Memory Map of the image
     0x08001148   0x08001148   0x00000002   Code   RO         3459    i.__scatterload_null  mc_w.l(handlers.o)
     0x0800114a   0x0800114a   0x0000000e   Code   RO         3460    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08001158   0x08001158   0x00000008   Code   RO         3288    i.dma_init          bsp_dma.o
-    0x08001160   0x08001160   0x00000064   Code   RO         3064    i.main              main.o
-    0x080011c4   0x080011c4   0x000000d4   Code   RO         3394    i.sbus_decode       sbus.o
-    0x08001298   0x08001298   0x0000000c   Code   RO         3395    i.sbus_init         sbus.o
-    0x080012a4   0x080012a4   0x00000054   Code   RO         3314    i.set_pwm           bsp_tim.o
-    0x080012f8   0x080012f8   0x00000018   Code   RO         3316    i.timer_init        bsp_tim.o
-    0x08001310   0x08001310   0x00000010   Code   RO         3224    i.usart_init        bsp_usart.o
-    0x08001320   0x08001320   0x000000c0   Data   RO         3396    .constdata          sbus.o
-    0x080013e0   0x080013e0   0x00000020   Data   RO         3456    Region$$Table       anon$$obj.o
+    0x08001160   0x08001160   0x00000068   Code   RO         3064    i.main              main.o
+    0x080011c8   0x080011c8   0x000000d4   Code   RO         3394    i.sbus_decode       sbus.o
+    0x0800129c   0x0800129c   0x0000000c   Code   RO         3395    i.sbus_init         sbus.o
+    0x080012a8   0x080012a8   0x00000054   Code   RO         3314    i.set_pwm           bsp_tim.o
+    0x080012fc   0x080012fc   0x00000018   Code   RO         3316    i.timer_init        bsp_tim.o
+    0x08001314   0x08001314   0x00000010   Code   RO         3224    i.usart_init        bsp_usart.o
+    0x08001324   0x08001324   0x000000c0   Data   RO         3396    .constdata          sbus.o
+    0x080013e4   0x080013e4   0x00000020   Data   RO         3456    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001400, Size: 0x00000460, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001404, Size: 0x00000468, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08001400   0x00000014   Data   RW         1694    .data               stm32f10x_rcc.o
-    0x20000014   0x08001414   0x00000001   Data   RW         3225    .data               bsp_usart.o
-    0x20000015   0x08001415   0x00000001   PAD
-    0x20000016   0x08001416   0x00000002   Data   RW         3263    .data               bsp_systick.o
-    0x20000018   0x08001418   0x00000004   Data   RW         3317    .data               bsp_tim.o
-    0x2000001c   0x0800141c   0x00000002   Data   RW         3382    .data               globle.o
-    0x2000001e   0x0800141e   0x00000002   PAD
-    0x20000020        -       0x0000003b   Zero   RW         3381    .bss                globle.o
-    0x2000005b   0x0800141e   0x00000005   PAD
-    0x20000060        -       0x00000400   Zero   RW            1    STACK               startup_stm32f10x_md.o
+    0x20000000   0x08001404   0x00000014   Data   RW         1694    .data               stm32f10x_rcc.o
+    0x20000014   0x08001418   0x00000001   Data   RW         3225    .data               bsp_usart.o
+    0x20000015   0x08001419   0x00000001   PAD
+    0x20000016   0x0800141a   0x00000002   Data   RW         3263    .data               bsp_systick.o
+    0x20000018   0x0800141c   0x00000004   Data   RW         3317    .data               bsp_tim.o
+    0x2000001c   0x08001420   0x00000002   Data   RW         3382    .data               globle.o
+    0x2000001e   0x08001422   0x00000002   PAD
+    0x20000020        -       0x00000044   Zero   RW         3381    .bss                globle.o
+    0x20000064   0x08001422   0x00000004   PAD
+    0x20000068        -       0x00000400   Zero   RW            1    STACK               startup_stm32f10x_md.o
 
 
 ==============================================================================
@@ -1122,12 +1122,12 @@ Image component sizes
 
         96         14          0          0          0        995   bsp_dma.o
         28          4          0          2          0        762   bsp_systick.o
-       642         50          0          4          0       4879   bsp_tim.o
+       642         48          0          4          0       4947   bsp_tim.o
        354         38          0          1          0       2763   bsp_usart.o
-         0          0          0          2         59        816   globle.o
-       100         14          0          0          0        595   main.o
+         0          0          0          2         68        816   globle.o
+       104         16          0          0          0        551   main.o
        172         22          0          0          0     265645   misc.o
-       224         18        192          0          0       2342   sbus.o
+       224         18        192          0          0       2306   sbus.o
         36          8        236          0       1024        860   startup_stm32f10x_md.o
         96          0          0          0          0       4299   stm32f10x_dma.o
        278          0          0          0          0       2208   stm32f10x_gpio.o
@@ -1138,9 +1138,9 @@ Image component sizes
        328         28          0          0          0       2081   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-      4010        340        460         32       1088     313670   Object Totals
+      4014        340        460         32       1096     313658   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        16          0          0          3          5          0   (incl. Padding)
+        16          0          0          3          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1186,15 +1186,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4660        356        460         32       1088     311170   Grand Totals
-      4660        356        460         32       1088     311170   ELF Image Totals
-      4660        356        460         32          0          0   ROM Totals
+      4664        356        460         32       1096     311158   Grand Totals
+      4664        356        460         32       1096     311158   ELF Image Totals
+      4664        356        460         32          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 5120 (   5.00kB)
-    Total RW  Size (RW Data + ZI Data)              1120 (   1.09kB)
-    Total ROM Size (Code + RO Data + RW Data)       5152 (   5.03kB)
+    Total RO  Size (Code + RO Data)                 5124 (   5.00kB)
+    Total RW  Size (RW Data + ZI Data)              1128 (   1.10kB)
+    Total ROM Size (Code + RO Data + RW Data)       5156 (   5.04kB)
 
 ==============================================================================
 

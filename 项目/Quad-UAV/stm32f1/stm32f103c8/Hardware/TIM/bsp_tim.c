@@ -138,10 +138,6 @@ static void Timer2_4_TBConfigure(void)
 
     TIM_InternalClockConfig(TIM4);
     TIM_TimeBaseInit(TIM4, &TIM_TimeBaseInitStructure);
-
-    TIM_Cmd(TIM2, ENABLE);
-    TIM_Cmd(TIM3, ENABLE);
-    TIM_Cmd(TIM4, ENABLE);
 }
 
 static void Timer2_4_OCConfigure(void)
@@ -152,7 +148,7 @@ static void Timer2_4_OCConfigure(void)
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; /*高电平为有效电平*/
     // TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; /*高电平为有效电平*/
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-    TIM_OCInitStructure.TIM_Pulse = 900; /*确保初始时电机不转*/
+    TIM_OCInitStructure.TIM_Pulse = 0; /*确保初始时电机不转*/
     TIM_OC1Init(TIM2, &TIM_OCInitStructure);
     TIM_OC2Init(TIM2, &TIM_OCInitStructure);
     TIM_OC3Init(TIM4, &TIM_OCInitStructure);
@@ -161,6 +157,10 @@ static void Timer2_4_OCConfigure(void)
     TIM_OC2Init(TIM3, &TIM_OCInitStructure);
     TIM_OC3Init(TIM3, &TIM_OCInitStructure);
     TIM_OC4Init(TIM3, &TIM_OCInitStructure);
+
+    TIM_Cmd(TIM2, ENABLE);
+    TIM_Cmd(TIM3, ENABLE);
+    TIM_Cmd(TIM4, ENABLE);
 }
 
 /**
@@ -182,14 +182,15 @@ void set_pwm(uint16_t *pwm_buff)
 {
     // uint8_t ii = 0;
     // uint8_t chan = (channel <= RC_PWM_CHANNELS) ? channel : RC_PWM_CHANNELS;
-    TIM_SetCompare1(TIM2, pwm_buff[0]); /*通道1*/
-    TIM_SetCompare2(TIM2, pwm_buff[1]);
-    TIM_SetCompare3(TIM4, pwm_buff[2]);
-    TIM_SetCompare4(TIM4, pwm_buff[3]);
-    TIM_SetCompare1(TIM3, pwm_buff[4]);
-    TIM_SetCompare2(TIM3, pwm_buff[5]);
-    TIM_SetCompare3(TIM3, pwm_buff[6]);
-    TIM_SetCompare4(TIM3, pwm_buff[7]);
+    uint16_t pwm = pwm_buff[1];
+    TIM_SetCompare1(TIM2, pwm); /*通道1*/
+    TIM_SetCompare2(TIM2, pwm);
+    TIM_SetCompare3(TIM4, pwm);
+    TIM_SetCompare4(TIM4, pwm);
+    TIM_SetCompare1(TIM3, pwm);
+    TIM_SetCompare2(TIM3, pwm);
+    TIM_SetCompare3(TIM3, pwm);
+    TIM_SetCompare4(TIM3, pwm);
 }
 
 // void motor_init(void)

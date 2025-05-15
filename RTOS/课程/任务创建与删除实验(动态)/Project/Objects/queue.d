@@ -1,9 +1,9 @@
 .\objects\queue.o: ..\FreeRTOS\queue.c
-.\objects\queue.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\queue.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\queue.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\queue.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\queue.o: ..\FreeRTOS\include\FreeRTOS.h
-.\objects\queue.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\queue.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\queue.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\queue.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\queue.o: ..\User\FreeRTOSConfig.h
 .\objects\queue.o: ..\User\SYS\bsp_sys.h
 .\objects\queue.o: ..\Libraries\CMSIS\stm32f10x.h
@@ -35,7 +35,7 @@
 .\objects\queue.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\queue.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\queue.o: ..\User\USART\bsp_usart.h
-.\objects\queue.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\queue.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\queue.o: ..\FreeRTOS\include\projdefs.h
 .\objects\queue.o: ..\FreeRTOS\include\portable.h
 .\objects\queue.o: ..\FreeRTOS\include\deprecated_definitions.h

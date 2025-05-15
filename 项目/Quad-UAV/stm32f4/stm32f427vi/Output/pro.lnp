@@ -52,8 +52,13 @@
 "..\output\bsp_tim.o"
 "..\output\bsp_exti.o"
 "..\output\bsp_ms5611.o"
+"..\output\gps.o"
+"..\output\bsp_dma.o"
+"..\output\globle.o"
 "..\output\filter.o"
+"..\output\ringbuff.o"
 "..\output\sbus.o"
+"..\output\ubx.o"
 --library_type=microlib --strict --scatter "..\Output\pro.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

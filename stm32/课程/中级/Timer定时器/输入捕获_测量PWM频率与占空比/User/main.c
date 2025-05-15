@@ -35,14 +35,18 @@ int main(void)
   {
     freq = GetFreq();
     duty = GetDuty();
-    OLED_Printf(0, 0, OLED_8X16, "freq = %dHz", freq);
-    OLED_Printf(0, 18, OLED_8X16, "duty = %d", duty);
-    OLED_ShowString(72, 18, "%", OLED_8X16);
-    OLED_Update();
-		printf("freq = %dHz,",freq);
-		printf("duty = %d,",duty);
-		printf("Capture=%d\n",TIM_GetCapture1(TIM4));
-		delay_ms(100);
+//    OLED_Printf(0, 0, OLED_8X16, "freq = %dHz", freq);
+//    OLED_Printf(0, 18, OLED_8X16, "duty = %d", duty);
+//    OLED_ShowString(72, 18, "%", OLED_8X16);
+//    OLED_Update();
+//		printf("freq = %dHz,",freq);
+//		printf("duty = %d,",duty);
+//		printf("Capture=%d\n",TIM_GetCapture1(TIM4));
+		printf("%d,",freq);
+		printf("%d,",duty);
+		printf("%d\n",TIM_GetCapture1(TIM4));
+		delay_ms(10);
+		
   }
 }
 

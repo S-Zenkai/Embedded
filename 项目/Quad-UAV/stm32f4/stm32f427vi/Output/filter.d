@@ -1,5 +1,5 @@
-..\output\filter.o: ..\Common\src\filter.c
-..\output\filter.o: ..\Common\inc\filter.h
+..\output\filter.o: ..\Common\FILTER\filter.c
+..\output\filter.o: ..\Common\FILTER\filter.h
 ..\output\filter.o: ..\Libraries\CMSIS\stm32f4xx.h
 ..\output\filter.o: ..\Libraries\CMSIS\core_cm4.h
 ..\output\filter.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

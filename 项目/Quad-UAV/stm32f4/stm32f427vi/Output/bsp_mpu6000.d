@@ -40,7 +40,8 @@
 ..\output\bsp_mpu6000.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\output\bsp_mpu6000.o: ..\Hardware\SPI\bsp_spi.h
 ..\output\bsp_mpu6000.o: ..\Hardware\SYSTICK\bsp_systick.h
-..\output\bsp_mpu6000.o: ..\Common\inc\filter.h
+..\output\bsp_mpu6000.o: ..\Hardware\SYS\bsp_sys.h
+..\output\bsp_mpu6000.o: ..\Common\FILTER\filter.h
 ..\output\bsp_mpu6000.o: ..\Hardware\USART\bsp_usart.h
 ..\output\bsp_mpu6000.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\output\bsp_mpu6000.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

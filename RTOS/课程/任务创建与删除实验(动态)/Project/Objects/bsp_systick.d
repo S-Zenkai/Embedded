@@ -2,7 +2,7 @@
 .\objects\bsp_systick.o: ..\User\SYSTICK\bsp_systick.h
 .\objects\bsp_systick.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp_systick.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\bsp_systick.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_systick.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_systick.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\bsp_systick.o: ..\User\stm32f10x_conf.h
 .\objects\bsp_systick.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -31,10 +31,10 @@
 .\objects\bsp_systick.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\bsp_systick.o: ..\User\SYS\bsp_sys.h
 .\objects\bsp_systick.o: ..\FreeRTOS\include\FreeRTOS.h
-.\objects\bsp_systick.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\bsp_systick.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\bsp_systick.o: ..\User\FreeRTOSConfig.h
 .\objects\bsp_systick.o: ..\User\USART\bsp_usart.h
-.\objects\bsp_systick.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\bsp_systick.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\bsp_systick.o: ..\FreeRTOS\include\projdefs.h
 .\objects\bsp_systick.o: ..\FreeRTOS\include\portable.h
 .\objects\bsp_systick.o: ..\FreeRTOS\include\deprecated_definitions.h

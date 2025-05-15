@@ -1,8 +1,8 @@
 .\objects\list.o: ..\FreeRTOS\list.c
-.\objects\list.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\list.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\list.o: ..\FreeRTOS\include\FreeRTOS.h
-.\objects\list.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\list.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\list.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\list.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\list.o: ..\User\FreeRTOSConfig.h
 .\objects\list.o: ..\User\SYS\bsp_sys.h
 .\objects\list.o: ..\Libraries\CMSIS\stm32f10x.h
@@ -34,7 +34,7 @@
 .\objects\list.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\list.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\list.o: ..\User\USART\bsp_usart.h
-.\objects\list.o: D:\AppData\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\list.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\list.o: ..\FreeRTOS\include\projdefs.h
 .\objects\list.o: ..\FreeRTOS\include\portable.h
 .\objects\list.o: ..\FreeRTOS\include\deprecated_definitions.h

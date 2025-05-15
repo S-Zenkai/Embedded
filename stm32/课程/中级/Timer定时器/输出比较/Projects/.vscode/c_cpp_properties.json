@@ -15,8 +15,8 @@
                 "d:\\GitLocalRepository\\Embedded\\stm32\\课程\\中级\\Timer定时器\\输出比较\\Drivers\\BSP\\OLED",
                 "d:\\GitLocalRepository\\Embedded\\stm32\\课程\\中级\\Timer定时器\\输出比较\\Drivers\\BSP\\TIM",
                 "d:\\GitLocalRepository\\Embedded\\stm32\\课程\\中级\\Timer定时器\\输出比较\\Drivers\\BSP\\PWM",
-                "D:\\AppData\\keil_v5\\ARM\\ARMCC\\include",
-                "D:\\AppData\\keil_v5\\ARM\\ARMCC\\include\\rw",
+                "D:\\AppData\\MDK_ARM\\Keil_v5\\ARM\\ARMCC\\include",
+                "D:\\AppData\\MDK_ARM\\Keil_v5\\ARM\\ARMCC\\include\\rw",
                 "d:\\GitLocalRepository\\Embedded\\stm32\\课程\\中级\\Timer定时器\\输出比较\\Drivers\\STM32F10x_StdPeriph_Driver\\src",
                 "d:\\GitLocalRepository\\Embedded\\stm32\\课程\\中级\\Timer定时器\\输出比较"
             ],

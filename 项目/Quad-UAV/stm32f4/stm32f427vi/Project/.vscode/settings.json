@@ -19,6 +19,21 @@
         "bsp_exti.h": "c",
         "variant": "c",
         "bsp_ms5611.h": "c",
-        "sbus.h": "c"
+        "sbus.h": "c",
+        "ubx.h": "c",
+        "gps.h": "c",
+        "globle.h": "c",
+        "stm32f4xx_usart.h": "c",
+        "bsp_dma.h": "c",
+        "stm32f4xx_dma.h": "c",
+        "ringbuff.h": "c",
+        "cstdint": "c",
+        "string": "c",
+        "vector": "c",
+        "memory": "c",
+        "optional": "c",
+        "string_view": "c",
+        "system_error": "c",
+        "text_encoding": "c"
     }
 }

@@ -39,5 +39,5 @@
 ..\output\bsp_exti.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f4xx_sai.h
 ..\output\bsp_exti.o: ..\Hardware\USART\bsp_usart.h
 ..\output\bsp_exti.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\output\bsp_exti.o: ..\Hardware\MPU6000\bsp_mpu6000.h
 ..\output\bsp_exti.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\output\bsp_exti.o: ..\Hardware\MPU6000\bsp_mpu6000.h
