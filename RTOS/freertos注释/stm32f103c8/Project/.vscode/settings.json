@@ -1,0 +1,26 @@
+{
+    "files.associations": {
+        "filter.h": "c",
+        "stm32f4xx_adc.h": "c",
+        "bsp_led.h": "c",
+        "stm32f10x_rcc.h": "c",
+        "stm32f10x.h": "c",
+        "stm32f10x_gpio.h": "c",
+        "main.h": "c",
+        "quav_f1_config.h": "c",
+        "bsp_usart.h": "c",
+        "stm32f10x_usart.h": "c",
+        "bsp_dma.h": "c",
+        "sbus.h": "c",
+        "stm32f10x_dma.h": "c",
+        "bsp_tim.h": "c",
+        "stm32f10x_tim.h": "c",
+        "compare": "c",
+        "cstdint": "c",
+        "format": "c",
+        "stm32f10x_dac.h": "c",
+        "globle.h": "c",
+        "bsp_systick.h": "c",
+        "freertos.h": "c"
+    }
+}

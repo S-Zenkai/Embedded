@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FFCFF3EA-2C47-414B-9A76-F0E08C6C589B}|c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\narcissistic_num.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FFCFF3EA-2C47-414B-9A76-F0E08C6C589B}|c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8.vcxproj|solutionrelative:c\u002B\u002B\u57FA\u7840\u5165\u95E8\\narcissistic_num.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFCFF3EA-2C47-414B-9A76-F0E08C6C589B}|c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\char_string.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FFCFF3EA-2C47-414B-9A76-F0E08C6C589B}|c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8.vcxproj|solutionrelative:c\u002B\u002B\u57FA\u7840\u5165\u95E8\\char_string.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFCFF3EA-2C47-414B-9A76-F0E08C6C589B}|c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\hallo_world.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FFCFF3EA-2C47-414B-9A76-F0E08C6C589B}|c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8.vcxproj|solutionrelative:c\u002B\u002B\u57FA\u7840\u5165\u95E8\\hallo_world.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "narcissistic_num.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\narcissistic_num.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u57FA\u7840\u5165\u95E8\\narcissistic_num.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\narcissistic_num.cpp*",
+              "RelativeToolTip": "c\u002B\u002B\u57FA\u7840\u5165\u95E8\\narcissistic_num.cpp*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-19T03:56:47.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "char_string.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\char_string.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u57FA\u7840\u5165\u95E8\\char_string.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\char_string.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u57FA\u7840\u5165\u95E8\\char_string.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-17T05:57:47.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "hallo_world.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\hallo_world.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u57FA\u7840\u5165\u95E8\\hallo_world.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\c\u002B\u002B\u57FA\u7840\u5165\u95E8\\hallo_world.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u57FA\u7840\u5165\u95E8\\hallo_world.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-16T14:49:02.431Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
