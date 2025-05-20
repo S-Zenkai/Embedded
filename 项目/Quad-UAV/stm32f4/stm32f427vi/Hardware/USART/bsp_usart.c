@@ -30,7 +30,7 @@
  * @param  无
  * @retval 无
  */
-static void USART_NVIC_Configure(void)
+	static void USART_NVIC_Configure(void)
 {
     NVIC_InitTypeDef NVIC_InitStructure;
     /*优先级组*/
