@@ -143,11 +143,17 @@
 struct xLIST;
 struct xLIST_ITEM
 {
+    /*校验值*/
     listFIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE           /*< Set to a known value if configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES is set to 1. */
+    /*列表项的值，一般用于升序排序*/
     configLIST_VOLATILE TickType_t xItemValue;          /*< The value being listed.  In most cases this is used to sort the list in ascending order. */
+    /*指向下一个列表项*/
     struct xLIST_ITEM * configLIST_VOLATILE pxNext;     /*< Pointer to the next ListItem_t in the list. */
+    /*指向上一个列表项*/
     struct xLIST_ITEM * configLIST_VOLATILE pxPrevious; /*< Pointer to the previous ListItem_t in the list. */
+    /*指向包含列表项的对象，通常是TCB*/
     void * pvOwner;                                     /*< Pointer to the object (normally a TCB) that contains the list item.  There is therefore a two way link between the object containing the list item and the list item itself. */
+    /*指向包含列表项的列表*/
     struct xLIST * configLIST_VOLATILE pxContainer;     /*< Pointer to the list in which this list item is placed (if any). */
     listSECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE          /*< Set to a known value if configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES is set to 1. */
 };
@@ -171,9 +177,15 @@ typedef struct xLIST_ITEM ListItem_t;                   /* For some reason lint 
  */
 typedef struct xLIST
 {
-    listFIRST_LIST_INTEGRITY_CHECK_VALUE      /*< Set to a known value if configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES is set to 1. */
+    /*listFIRST_LIST_INTEGRITY_CHECK_VALUE和listSECOND_LIST_INTEGRITY_CHECK_VALUE*/
+    /*用于检查列表的数据是否在运行过程中是否被损坏*/
+    /*一般用于调试，默认为开启*/
+    listFIRST_LIST_INTEGRITY_CHECK_VALUE      /*校验值，为确定的已知常量*//*< Set to a known value if configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES is set to 1. */
+    /*列表中当前包含的列表项数量，不包含xListEnd*/
     volatile UBaseType_t uxNumberOfItems;
+    /*用于遍历列表的索引，指向某一个列表项*/
     ListItem_t * configLIST_VOLATILE pxIndex; /*< Used to walk through the list.  Points to the last item returned by a call to listGET_OWNER_OF_NEXT_ENTRY (). */
+    /*迷你列表项，排在列表的最后*/
     MiniListItem_t xListEnd;                  /*< List item that contains the maximum possible item value meaning it is always at the end of the list and is therefore used as a marker. */
     listSECOND_LIST_INTEGRITY_CHECK_VALUE     /*< Set to a known value if configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES is set to 1. */
 } List_t;

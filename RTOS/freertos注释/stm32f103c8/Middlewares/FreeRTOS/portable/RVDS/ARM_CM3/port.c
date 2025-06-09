@@ -65,6 +65,7 @@
 #define portNVIC_PEND_SYSTICK_SET_BIT         ( 1UL << 26UL )
 #define portNVIC_PEND_SYSTICK_CLEAR_BIT       ( 1UL << 25UL )
 
+/*这里左移16位便是配置的PendSV(0xe000ed22,每个地址8位,由于操作0xe000ed20中的值，所以使用|既保留20值，又写入了22)优先级*/
 #define portNVIC_PENDSV_PRI                   ( ( ( uint32_t ) configKERNEL_INTERRUPT_PRIORITY ) << 16UL )
 #define portNVIC_SYSTICK_PRI                  ( ( ( uint32_t ) configKERNEL_INTERRUPT_PRIORITY ) << 24UL )
 
@@ -264,6 +265,7 @@ __asm void prvStartFirstTask( void )
  */
 BaseType_t xPortStartScheduler( void )
 {
+    /*{}中的代码用于检查FreeRTOSConfig.h中配置的优先级是否正确*/
     #if ( configASSERT_DEFINED == 1 )
     {
         volatile uint32_t ulOriginalPriority;
@@ -332,15 +334,23 @@ BaseType_t xPortStartScheduler( void )
     #endif /* configASSERT_DEFINED */
 
     /* Make PendSV and SysTick the lowest priority interrupts. */
+    /*portNVIC_SHPR3_REG(0xe000ed20)为中断优先级配置寄存器，32位，这里是portNVIC_SHPR3_REG中的值*/
+    /*下面设置PendSV和SysTick中断优先级为最低*/
+    /*下面见portNVIC_PENDSV_PRI注释*/
     portNVIC_SHPR3_REG |= portNVIC_PENDSV_PRI;
 
     portNVIC_SHPR3_REG |= portNVIC_SYSTICK_PRI;
 
     /* Start the timer that generates the tick ISR.  Interrupts are disabled
      * here already. */
+    // 调用 vPortSetupTimerInterrupt() 来配置和启动系统节拍定时器 (通常是 SysTick)。
+    // 这个函数会设置 SysTick 的重载值 (基于 configTICK_RATE_HZ) 并使能定时器和它的中断。
+    // 此时全局中断仍然是关闭的 (由 vTaskStartScheduler 中的 portDISABLE_INTERRUPTS() 关闭)，
+    // 所以 SysTick 中断只会 pending，直到第一个任务开始执行并恢复中断状态
     vPortSetupTimerInterrupt();
 
     /* Initialise the critical nesting count ready for the first task. */
+	/*这个变量记录了中断嵌套数，在进入推出临界区有用到*/
     uxCriticalNesting = 0;
 
     /* Start the first task. */
@@ -358,10 +368,11 @@ void vPortEndScheduler( void )
     configASSERT( uxCriticalNesting == 1000UL );
 }
 /*-----------------------------------------------------------*/
-
+/*进入临界区函数，本质上是关中断*/
 void vPortEnterCritical( void )
 {
     portDISABLE_INTERRUPTS();
+		/*uxCriticalNesting用于记录中断嵌套数，也记录了需要使用进入与推出临界区成对出现函数的个数，在开始任务调度器函数中置0*/
     uxCriticalNesting++;
 
     /* This is not the interrupt safe version of the enter critical function so
@@ -437,10 +448,14 @@ void xPortSysTickHandler( void )
     vPortRaiseBASEPRI();
     {
         /* Increment the RTOS tick. */
+        /*xTaskIncrementTick返回pdTRUE，则表示需要进行任务切换*/
+        /*函数内部，uxSchedulerSuspended不为0时，则返回pdTRUE*/
         if( xTaskIncrementTick() != pdFALSE )
         {
             /* A context switch is required.  Context switching is performed in
              * the PendSV interrupt.  Pend the PendSV interrupt. */
+            /*下面程序执行，则触发PENDSV中断，开始任务切换*/
+            /*portNVIC_INT_CTRL_REG:中断控制及状态寄存器(ICSR)，0xe000ed04，第24位写1可触发PENDSV中断*/
             portNVIC_INT_CTRL_REG = portNVIC_PENDSVSET_BIT;
         }
     }
@@ -693,7 +708,24 @@ void xPortSysTickHandler( void )
         portNVIC_SYSTICK_CURRENT_VALUE_REG = 0UL;
 
         /* Configure SysTick to interrupt at the requested rate. */
+        /*设置SysTick定时器中断频率，下面设置1ms中断一次*/
+        /*设置重装载值*/
         portNVIC_SYSTICK_LOAD_REG = ( configSYSTICK_CLOCK_HZ / configTICK_RATE_HZ ) - 1UL;
+        // 配置 SysTick 控制寄存器以启动定时器并使能中断。
+        // portNVIC_SYSTICK_CTRL_REG: SysTick 控制和状态寄存器。
+        //   portNVIC_SYSTICK_CLK_BIT_CONFIG: SysTick 时钟源选择位。
+        //     - 如果为 1，选择处理器时钟 (AHB clock)。
+        //     - 如果为 0 (通常不直接设置，而是宏定义为0)，选择外部参考时钟 (AHB/8)。
+        //     FreeRTOS 通常配置为使用处理器时钟，所以 configSYSTICK_CLOCK_HZ 应该等于 CPU 时钟频率 (configCPU_CLOCK_HZ)，
+        //     或者如果 SysTick 时钟源不同，则为相应的 SysTick 时钟频率。
+        //     `portNVIC_SYSTICK_CLK_BIT_CONFIG` 宏通常定义为 `( 1UL << 2 )`，即设置 CTRL 寄存器的 CLKSOURCE 位。
+        //   portNVIC_SYSTICK_INT_BIT: SysTick 中断使能位。
+        //     - 如果为 1，当 SysTick 计数到 0 时产生中断请求。
+        //     - 宏通常定义为 `( 1UL << 1 )`，即设置 CTRL 寄存器的 TICKINT 位。
+        //   portNVIC_SYSTICK_ENABLE_BIT: SysTick 定时器使能位。
+        //     - 如果为 1，启动 SysTick 定时器。
+        //     - 宏通常定义为 `( 1UL << 0 )`，即设置 CTRL 寄存器的 ENABLE 位。
+        // 使用位或操作 `|` 将这些控制位组合起来写入控制寄存器。
         portNVIC_SYSTICK_CTRL_REG = ( portNVIC_SYSTICK_CLK_BIT_CONFIG | portNVIC_SYSTICK_INT_BIT | portNVIC_SYSTICK_ENABLE_BIT );
     }
 

@@ -94,7 +94,7 @@ void vListInitialiseItem( ListItem_t * const pxItem )
     listSET_SECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE( pxItem );
 }
 /*-----------------------------------------------------------*/
-
+/*末尾插入会将列表项插入到pxIndex指向的列表项的上一个位置*/
 void vListInsertEnd( List_t * const pxList,
                      ListItem_t * const pxNewListItem )
 {
@@ -124,7 +124,7 @@ void vListInsertEnd( List_t * const pxList,
     ( pxList->uxNumberOfItems )++;
 }
 /*-----------------------------------------------------------*/
-
+/*升序插入按照列表项数值插入*/
 void vListInsert( List_t * const pxList,
                   ListItem_t * const pxNewListItem )
 {
@@ -175,7 +175,8 @@ void vListInsert( List_t * const pxList,
         *      the priority of the tick interrupt is at or below
         *      configMAX_SYSCALL_INTERRUPT_PRIORITY.
         **********************************************************************/
-
+        /*遍历查找插入位置*/
+        /*最后pxIterator会指向待插入列表的上一个列表项*/
         for( pxIterator = ( ListItem_t * ) &( pxList->xListEnd ); pxIterator->pxNext->xItemValue <= xValueOfInsertion; pxIterator = pxIterator->pxNext ) /*lint !e826 !e740 !e9087 The mini list structure is used as the list end to save RAM.  This is checked and valid. *//*lint !e440 The iterator moves to a different value, not xValueOfInsertion. */
         {
             /* There is nothing to do here, just iterating to the wanted

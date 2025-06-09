@@ -167,7 +167,7 @@
     #endif
 
 /*-----------------------------------------------------------*/
-
+		/*开中断，将basepri寄存器置0*/
     static portFORCE_INLINE void vPortSetBASEPRI( uint32_t ulBASEPRI )
     {
         __asm
@@ -180,9 +180,10 @@
         }
     }
 /*-----------------------------------------------------------*/
-
+    /*关中断*/
     static portFORCE_INLINE void vPortRaiseBASEPRI( void )
     {
+        /*basepri寄存器屏蔽优先级低于某一阈值的中断*/
         uint32_t ulNewBASEPRI = configMAX_SYSCALL_INTERRUPT_PRIORITY;
 
         __asm

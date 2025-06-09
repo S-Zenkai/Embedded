@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bubble_sort.cpp" />
     <ClCompile Include="char_string.cpp" />
     <ClCompile Include="hallo_world.cpp" />
     <ClCompile Include="narcissistic_num.cpp" />
+    <ClCompile Include="struct.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

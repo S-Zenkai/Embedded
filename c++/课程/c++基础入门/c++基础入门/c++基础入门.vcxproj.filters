@@ -24,5 +24,11 @@
     <ClCompile Include="narcissistic_num.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="bubble_sort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="struct.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

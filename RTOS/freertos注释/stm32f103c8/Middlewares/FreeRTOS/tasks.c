@@ -2107,6 +2107,7 @@ void vTaskStartScheduler(void)
     BaseType_t xReturn;
 
 /* Add the idle task at the lowest priority. */
+/*静态创建任务时执行下面的代码*/
 #if (configSUPPORT_STATIC_ALLOCATION == 1)
     {
         StaticTask_t *pxIdleTaskTCBBuffer = NULL;
@@ -2134,6 +2135,7 @@ void vTaskStartScheduler(void)
         }
     }
 #else  /* if ( configSUPPORT_STATIC_ALLOCATION == 1 ) */
+    /*创建空闲任务*/
     {
         /* The Idle task is being created using dynamically allocated RAM. */
         xReturn = xTaskCreate(prvIdleTask,
@@ -2144,7 +2146,7 @@ void vTaskStartScheduler(void)
                               &xIdleTaskHandle); /*lint !e961 MISRA exception, justified as it is not a redundant explicit cast to all supported compilers. */
     }
 #endif /* configSUPPORT_STATIC_ALLOCATION */
-
+/*如果配置了定时器，则创建定时器任务*/
 #if (configUSE_TIMERS == 1)
     {
         if (xReturn == pdPASS)
@@ -2174,6 +2176,9 @@ void vTaskStartScheduler(void)
          * the created tasks contain a status word with interrupts switched on
          * so interrupts will automatically get re-enabled when the first task
          * starts to run. */
+        /*关闭中断，确保在调用xPortStartScheduler()之前不会发生中断（特别是systick中断）*/
+        /*因为此时调度器还未完全准备好中断和任务切换*/
+        /*当第一个任务开始运行时，会重新打开中断*/
         portDISABLE_INTERRUPTS();
 
 #if ((configUSE_NEWLIB_REENTRANT == 1) || (configUSE_C_RUNTIME_TLS_SUPPORT == 1))
@@ -2183,10 +2188,10 @@ void vTaskStartScheduler(void)
             configSET_TLS_BLOCK(pxCurrentTCB->xTLSBlock);
         }
 #endif
-
-        xNextTaskUnblockTime = portMAX_DELAY;
-        xSchedulerRunning = pdTRUE;
-        xTickCount = (TickType_t)configINITIAL_TICK_COUNT;
+        /*初始化变量*/
+        xNextTaskUnblockTime = portMAX_DELAY;// 初始化下一个任务解锁时间为最大延迟，表示当前没有任务因超时而阻塞
+        xSchedulerRunning = pdTRUE;/*设置任务调度器运行标志*/
+        xTickCount = (TickType_t)configINITIAL_TICK_COUNT;/*初始化系统滴答计数器*/
 
         /* If configGENERATE_RUN_TIME_STATS is defined then the following
          * macro must be defined to configure the timer/counter used to generate
@@ -2200,6 +2205,8 @@ void vTaskStartScheduler(void)
 
         /* Setting up the timer tick is hardware specific and thus in the
          * portable interface. */
+        /*启动任务调度器并开始执行第一个任务*/
+        /*这个函数不会返回，一旦调用，CPU控制权会交给调度器*/
         xPortStartScheduler();
 
         /* In most cases, xPortStartScheduler() will not return. If it
@@ -2322,116 +2329,135 @@ static TickType_t prvGetExpectedIdleTime(void)
 #endif /* configUSE_TICKLESS_IDLE */
 /*----------------------------------------------------------*/
 
-BaseType_t xTaskResumeAll(void)
-{
-    TCB_t *pxTCB = NULL;
-    BaseType_t xAlreadyYielded = pdFALSE;
-
-    /* If uxSchedulerSuspended is zero then this function does not match a
-     * previous call to vTaskSuspendAll(). */
-    configASSERT(uxSchedulerSuspended);
-
-    /* It is possible that an ISR caused a task to be removed from an event
-     * list while the scheduler was suspended.  If this was the case then the
-     * removed task will have been added to the xPendingReadyList.  Once the
-     * scheduler has been resumed it is safe to move all the pending ready
-     * tasks from this list into their appropriate ready list. */
-    taskENTER_CRITICAL();
+    BaseType_t xTaskResumeAll(void)
     {
-        --uxSchedulerSuspended;
+        TCB_t *pxTCB = NULL;
+        BaseType_t xAlreadyYielded = pdFALSE;
 
-        if (uxSchedulerSuspended == (UBaseType_t)pdFALSE)
+        /* If uxSchedulerSuspended is zero then this function does not match a
+        * previous call to vTaskSuspendAll(). */
+        configASSERT(uxSchedulerSuspended);
+
+        /* It is possible that an ISR caused a task to be removed from an event
+        * list while the scheduler was suspended.  If this was the case then the
+        * removed task will have been added to the xPendingReadyList.  Once the
+        * scheduler has been resumed it is safe to move all the pending ready
+        * tasks from this list into their appropriate ready list. */
+        taskENTER_CRITICAL();
         {
-            if (uxCurrentNumberOfTasks > (UBaseType_t)0U)
+            /*在任务挂起时++*/
+            --uxSchedulerSuspended;
+
+            /*如果uxSchedulerSuspended为0，则表示任务需要执行任务回复*/
+            if (uxSchedulerSuspended == (UBaseType_t)pdFALSE)
             {
-                /* Move any readied tasks from the pending list into the
-                 * appropriate ready list. */
-                while (listLIST_IS_EMPTY(&xPendingReadyList) == pdFALSE)
+                /*任务恢复需要当前执行任务数大于0*/
+                if (uxCurrentNumberOfTasks > (UBaseType_t)0U)
                 {
-                    pxTCB = listGET_OWNER_OF_HEAD_ENTRY((&xPendingReadyList)); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
-                    listREMOVE_ITEM(&(pxTCB->xEventListItem));
-                    portMEMORY_BARRIER();
-                    listREMOVE_ITEM(&(pxTCB->xStateListItem));
-                    prvAddTaskToReadyList(pxTCB);
-
-                    /* If the moved task has a priority higher than or equal to
-                     * the current task then a yield must be performed. */
-                    if (pxTCB->uxPriority >= pxCurrentTCB->uxPriority)
+                    /* Move any readied tasks from the pending list into the
+                    * appropriate ready list. */
+                    /*检查挂起就绪列表是否为空*/
+                    /*在从中断中恢复任务xTaskResumeFromISR函数中，当任务调度器挂起时有任务就绪时，会将任务添加到挂起就绪列表中(不是就绪列表)*/
+                    /*所以这里会检查调度器挂起期间是否有任务就绪*/
+                    while (listLIST_IS_EMPTY(&xPendingReadyList) == pdFALSE)
                     {
-                        xYieldPending = pdTRUE;
-                    }
-                    else
-                    {
-                        mtCOVERAGE_TEST_MARKER();
-                    }
-                }
+                        /*获取挂起就绪列表中的第一个任务*/
+                        pxTCB = listGET_OWNER_OF_HEAD_ENTRY((&xPendingReadyList)); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
+                        /*从任务可能所属的任何事件列表中移除该任务*/
+                        listREMOVE_ITEM(&(pxTCB->xEventListItem));
+                        /*内存屏蔽，确保在多核或某些优化编译器环境下，内存操作的顺序和可见性是正确的*/
+                        portMEMORY_BARRIER();
+                        /*从任务可能所属的任何状态列表中移除该任务*/
+                        listREMOVE_ITEM(&(pxTCB->xStateListItem));
+                        /*将任务添加到就绪列表中*/
+                        prvAddTaskToReadyList(pxTCB);
 
-                if (pxTCB != NULL)
-                {
-                    /* A task was unblocked while the scheduler was suspended,
-                     * which may have prevented the next unblock time from being
-                     * re-calculated, in which case re-calculate it now.  Mainly
-                     * important for low power tickless implementations, where
-                     * this can prevent an unnecessary exit from low power
-                     * state. */
-                    prvResetNextTaskUnblockTime();
-                }
-
-                /* If any ticks occurred while the scheduler was suspended then
-                 * they should be processed now.  This ensures the tick count does
-                 * not  slip, and that any delayed tasks are resumed at the correct
-                 * time. */
-                {
-                    TickType_t xPendedCounts = xPendedTicks; /* Non-volatile copy. */
-
-                    if (xPendedCounts > (TickType_t)0U)
-                    {
-                        do
+                        /* If the moved task has a priority higher than or equal to
+                        * the current task then a yield must be performed. */
+                        /*如果挂起任务的优先级大于或等于当前任务的优先级，则需要进行任务切换*/
+                        if (pxTCB->uxPriority >= pxCurrentTCB->uxPriority)
                         {
-                            if (xTaskIncrementTick() != pdFALSE)
-                            {
-                                xYieldPending = pdTRUE;
-                            }
-                            else
-                            {
-                                mtCOVERAGE_TEST_MARKER();
-                            }
+                            xYieldPending = pdTRUE;
+                        }
+                        else
+                        {
+                            mtCOVERAGE_TEST_MARKER();
+                        }
+                    }
+                    /*如果上述操作中，有任务被加入就绪列表，则需要重新计算下一个任务的解锁时间*/
+                    if (pxTCB != NULL)
+                    {
+                        /* A task was unblocked while the scheduler was suspended,
+                        * which may have prevented the next unblock time from being
+                        * re-calculated, in which case re-calculate it now.  Mainly
+                        * important for low power tickless implementations, where
+                        * this can prevent an unnecessary exit from low power
+                        * state. */
+                        /*重新计算下一个任务的解锁时间*/
+                        prvResetNextTaskUnblockTime();
+                    }
 
-                            --xPendedCounts;
-                        } while (xPendedCounts > (TickType_t)0U);
+                    /* If any ticks occurred while the scheduler was suspended then
+                    * they should be processed now.  This ensures the tick count does
+                    * not  slip, and that any delayed tasks are resumed at the correct
+                    * time. */
+                   /*下面的代码用于处理调度器挂起期间丢失的系统滴答数(xTickCount)*/
+                   /*xTickCount会在systick中断服务函数调度器未挂起期间++*/
+                   /*任务调度器挂起后，在systick中断服务函数中，会增加xPendedTicks代替xTickCount++*/
+                    {
+                        TickType_t xPendedCounts = xPendedTicks; /* Non-volatile copy. */
 
-                        xPendedTicks = 0;
+                        if (xPendedCounts > (TickType_t)0U)
+                        {
+                            do
+                            {
+                                /*xTaskIncrementTick()函数会根据xPendedTicks的值，增加xTickCount的值*/
+                                if (xTaskIncrementTick() != pdFALSE)
+                                {
+                                    xYieldPending = pdTRUE;
+                                }
+                                else
+                                {
+                                    mtCOVERAGE_TEST_MARKER();
+                                }
+
+                                --xPendedCounts;
+                            } while (xPendedCounts > (TickType_t)0U);
+
+                            xPendedTicks = 0;
+                        }
+                        else
+                        {
+                            mtCOVERAGE_TEST_MARKER();
+                        }
+                    }
+                    /*如果xYieldPending为pdTRUE，则需要进行任务切换*/
+                    if (xYieldPending != pdFALSE)
+                    {
+                        /*如果配置了抢占式调度*/
+    #if (configUSE_PREEMPTION != 0)
+                        {
+                            xAlreadyYielded = pdTRUE;
+                        }
+    #endif
+                        /*进行任务切换(如果使能了抢占式调度)，未使能抢占式调度时，不会进行任务切换*/
+                        taskYIELD_IF_USING_PREEMPTION();
                     }
                     else
                     {
                         mtCOVERAGE_TEST_MARKER();
                     }
-                }
-
-                if (xYieldPending != pdFALSE)
-                {
-#if (configUSE_PREEMPTION != 0)
-                    {
-                        xAlreadyYielded = pdTRUE;
-                    }
-#endif
-                    taskYIELD_IF_USING_PREEMPTION();
-                }
-                else
-                {
-                    mtCOVERAGE_TEST_MARKER();
                 }
             }
+            else
+            {
+                mtCOVERAGE_TEST_MARKER();
+            }
         }
-        else
-        {
-            mtCOVERAGE_TEST_MARKER();
-        }
+        taskEXIT_CRITICAL();
+        /*如果xAlreadyYielded为pdTRUE，则需要进行任务切换*/
+        return xAlreadyYielded;
     }
-    taskEXIT_CRITICAL();
-
-    return xAlreadyYielded;
-}
 /*-----------------------------------------------------------*/
 
 TickType_t xTaskGetTickCount(void)
