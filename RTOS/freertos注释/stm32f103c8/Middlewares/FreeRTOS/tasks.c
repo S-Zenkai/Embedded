@@ -1399,7 +1399,7 @@ BaseType_t xTaskDelayUntil(TickType_t *const pxPreviousWakeTime,
 
 void vTaskDelay(const TickType_t xTicksToDelay)
 {
-    BaseType_t xAlreadyYielded = pdFALSE;
+    BaseType_t x AlreadyYielded = pdFALSE;
 
     /* A delay time of zero just forces a reschedule. */
     if (xTicksToDelay > (TickType_t)0U)

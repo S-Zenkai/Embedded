@@ -156,12 +156,19 @@ void mpu6000_init(void)
      j = 0;
      for (i = 8; i < 14; i++)
      {
-         MPU6000_Data->GyroRaw.axis[j] = raw_buf[i];
+          MPU6000_Data->GyroRaw.axis[j] = raw_buf[i];
          MPU6000_Data->GyroRaw.axis[j] <<= 8;
-         i++;
-         MPU6000_Data->GyroRaw.axis[j] |= raw_buf[i];
+          i++;
+          MPU6000_Data->GyroRaw.axis[j] |= raw_buf[i];
          j++;
      }
+		 printf("%hd,",MPU6000_Data->AccRaw.x);
+     printf("%hd,",MPU6000_Data->AccRaw.y);
+     printf("%hd,",MPU6000_Data->AccRaw.z);
+     /*角速度数据*/
+     printf("%hd,",MPU6000_Data->GyroRaw.x);
+     printf("%hd,",MPU6000_Data->GyroRaw.y);
+     printf("%hd\n",MPU6000_Data->GyroRaw.z);
  }
 
 static bool calculate_gyro(MPU6000Data_t *data)
@@ -244,13 +251,13 @@ void MPU6000_ProcessData(MPU6000Data_t *MPU6000_Data)
     {
         MPU6000_Data->Gyro.axis[index] = (MPU6000_Data->GyroRaw.axis[index] - calibration.bias_sum.axis[index] / gyro_calibration_simple) / gyro_range_2000;
     }
-    printf("%f,", MPU6000_Data->Acc.x);
-    printf("%f,", MPU6000_Data->Acc.y);
-    printf("%f,", MPU6000_Data->Acc.z);
-    /*角速度数据*/
-    printf("%f,", MPU6000_Data->Gyro.x);
-    printf("%f,", MPU6000_Data->Gyro.y);
-    printf("%f,", MPU6000_Data->Gyro.z);
+//    printf("%f,", MPU6000_Data->Acc.x);
+//    printf("%f,", MPU6000_Data->Acc.y);
+//    printf("%f,", MPU6000_Data->Acc.z);
+//    /*角速度数据*/
+//    printf("%f,", MPU6000_Data->Gyro.x);
+//    printf("%f,", MPU6000_Data->Gyro.y);
+//    printf("%f,", MPU6000_Data->Gyro.z);
     /*滤波*/
     for (index = 0; index < 3; index++)
     {
@@ -261,11 +268,11 @@ void MPU6000_ProcessData(MPU6000Data_t *MPU6000_Data)
     // {
     //     MPU6000_Data->Gyro.axis[index] = LPF2ord(&gyro_LPF2Param[index], MPU6000_Data->Gyro.axis[index]);
     // }
-    printf("%f,", MPU6000_Data->Acc.x);
-    printf("%f,", MPU6000_Data->Acc.y);
-    printf("%f,", MPU6000_Data->Acc.z);
-    /*角速度数据*/
-    printf("%f,", MPU6000_Data->Gyro.x);
-    printf("%f,", MPU6000_Data->Gyro.y);
-    printf("%f\n", MPU6000_Data->Gyro.z);
+//    printf("%f,", MPU6000_Data->Acc.x);
+//    printf("%f,", MPU6000_Data->Acc.y);
+//    printf("%f,", MPU6000_Data->Acc.z);
+//    /*角速度数据*/
+//    printf("%f,", MPU6000_Data->Gyro.x);
+//    printf("%f,", MPU6000_Data->Gyro.y);
+//    printf("%f\n", MPU6000_Data->Gyro.z);
 }

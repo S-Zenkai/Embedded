@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "bsp_led.h": "c",
+        "freertos_demo.h": "c",
+        "bsp_key.h": "c",
+        "bsp_usart.h": "c",
+        "bsp_sys.h": "c",
+        "bsp_exti.h": "c",
+        "stm32f10x_exti.h": "c",
+        "stm32f10x_rcc.h": "c",
+        "stm32f10x.h": "c",
+        "stm32f10x_gpio.h": "c",
+        "bsp_btim.h": "c",
+        "stm32f10x_tim.h": "c",
+        "algorithm": "c",
+        "bsp_systick.h": "c",
+        "freertos.h": "c",
+        "bsp_tim.h": "c",
+        "queue.h": "c"
+    }
+}

@@ -1,0 +1,172 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\\u70B9\u548C\u5706\u7684\u5173\u7CFB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\\u70B9\u548C\u5706\u7684\u5173\u7CFB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\quote_\u0026.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\quote_\u0026.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\Cube_class.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\Cube_class.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\memory_model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\memory_model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\new_delete.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F60744E-3FF0-42F1-BB92-DF1534BEFBAE}|c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B.vcxproj|solutionrelative:c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\new_delete.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "circle.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-25T14:25:23.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "point.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-25T14:25:00.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "circle.h",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.h",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.h",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.h",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\circle.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-25T14:24:21.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "point.h",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.h",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.h",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.h",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\point.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-25T14:23:22.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "\u70B9\u548C\u5706\u7684\u5173\u7CFB.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\\u70B9\u548C\u5706\u7684\u5173\u7CFB.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\\u70B9\u548C\u5706\u7684\u5173\u7CFB.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\\u70B9\u548C\u5706\u7684\u5173\u7CFB.cpp*",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\\u70B9\u548C\u5706\u7684\u5173\u7CFB.cpp*",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-25T10:40:13.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Cube_class.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\Cube_class.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\Cube_class.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\Cube_class.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\Cube_class.cpp",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAowD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-25T09:12:53.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "quote_\u0026.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\quote_\u0026.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\quote_\u0026.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\quote_\u0026.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\quote_\u0026.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-23T14:37:08.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "new_delete.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\new_delete.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\new_delete.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\new_delete.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\new_delete.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-23T14:21:27.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "memory_model.cpp",
+              "DocumentMoniker": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\memory_model.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\memory_model.cpp",
+              "ToolTip": "D:\\GitLocalRepository\\Embedded\\c\u002B\u002B\\\u8BFE\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\memory_model.cpp",
+              "RelativeToolTip": "c\u002B\u002B\u6838\u5FC3\u7F16\u7A0B\\memory_model.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-23T13:32:28.192Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
