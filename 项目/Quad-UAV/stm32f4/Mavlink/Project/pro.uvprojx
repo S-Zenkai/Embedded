@@ -1831,6 +1831,41 @@
               <FileType>5</FileType>
               <FilePath>..\Middlewares\Mavlink\common\version.h</FilePath>
             </File>
+            <File>
+              <FileName>checksum.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\Mavlink\checksum.h</FilePath>
+            </File>
+            <File>
+              <FileName>mavlink_conversions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\Mavlink\mavlink_conversions.h</FilePath>
+            </File>
+            <File>
+              <FileName>mavlink_get_info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\Mavlink\mavlink_get_info.h</FilePath>
+            </File>
+            <File>
+              <FileName>mavlink_helpers.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\Mavlink\mavlink_helpers.h</FilePath>
+            </File>
+            <File>
+              <FileName>mavlink_sha256.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\Mavlink\mavlink_sha256.h</FilePath>
+            </File>
+            <File>
+              <FileName>mavlink_types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\Mavlink\mavlink_types.h</FilePath>
+            </File>
+            <File>
+              <FileName>protocol.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\Mavlink\protocol.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -158,24 +158,7 @@
           <Name>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_2048 -FS08000000 -FL0200000 -FP0($$Device:STM32F427VITx$CMSIS\Flash\STM32F4xx_2048.FLM))</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>51</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134230440</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\User\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\pro\../User/main.c\51</Expression>
-        </Bp>
-      </Breakpoint>
+      <Breakpoint/>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -3665,17 +3648,101 @@
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>277</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Middlewares\Mavlink\checksum.h</PathWithFileName>
+      <FilenameWithoutPath>checksum.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>278</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Middlewares\Mavlink\mavlink_conversions.h</PathWithFileName>
+      <FilenameWithoutPath>mavlink_conversions.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>279</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Middlewares\Mavlink\mavlink_get_info.h</PathWithFileName>
+      <FilenameWithoutPath>mavlink_get_info.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>280</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Middlewares\Mavlink\mavlink_helpers.h</PathWithFileName>
+      <FilenameWithoutPath>mavlink_helpers.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>281</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Middlewares\Mavlink\mavlink_sha256.h</PathWithFileName>
+      <FilenameWithoutPath>mavlink_sha256.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>282</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Middlewares\Mavlink\mavlink_types.h</PathWithFileName>
+      <FilenameWithoutPath>mavlink_types.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>283</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\Middlewares\Mavlink\protocol.h</PathWithFileName>
+      <FilenameWithoutPath>protocol.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
   </Group>
 
   <Group>
     <GroupName>BSP</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>277</FileNumber>
+      <FileNumber>284</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3687,7 +3754,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>278</FileNumber>
+      <FileNumber>285</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3699,7 +3766,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>279</FileNumber>
+      <FileNumber>286</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3711,7 +3778,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>280</FileNumber>
+      <FileNumber>287</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3723,7 +3790,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>281</FileNumber>
+      <FileNumber>288</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3735,7 +3802,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>282</FileNumber>
+      <FileNumber>289</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3747,7 +3814,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>283</FileNumber>
+      <FileNumber>290</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3759,7 +3826,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>284</FileNumber>
+      <FileNumber>291</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3773,13 +3840,13 @@
 
   <Group>
     <GroupName>Drivers</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>285</FileNumber>
+      <FileNumber>292</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3791,7 +3858,7 @@
     </File>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>286</FileNumber>
+      <FileNumber>293</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3803,7 +3870,7 @@
     </File>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>287</FileNumber>
+      <FileNumber>294</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3815,7 +3882,7 @@
     </File>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>288</FileNumber>
+      <FileNumber>295</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3835,7 +3902,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>289</FileNumber>
+      <FileNumber>296</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3847,7 +3914,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>290</FileNumber>
+      <FileNumber>297</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3859,7 +3926,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>291</FileNumber>
+      <FileNumber>298</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3879,7 +3946,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>9</GroupNumber>
-      <FileNumber>292</FileNumber>
+      <FileNumber>299</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3891,7 +3958,7 @@
     </File>
     <File>
       <GroupNumber>9</GroupNumber>
-      <FileNumber>293</FileNumber>
+      <FileNumber>300</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3903,7 +3970,7 @@
     </File>
     <File>
       <GroupNumber>9</GroupNumber>
-      <FileNumber>294</FileNumber>
+      <FileNumber>301</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3923,7 +3990,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>10</GroupNumber>
-      <FileNumber>295</FileNumber>
+      <FileNumber>302</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3943,7 +4010,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>11</GroupNumber>
-      <FileNumber>296</FileNumber>
+      <FileNumber>303</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3955,7 +4022,7 @@
     </File>
     <File>
       <GroupNumber>11</GroupNumber>
-      <FileNumber>297</FileNumber>
+      <FileNumber>304</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -3967,7 +4034,7 @@
     </File>
     <File>
       <GroupNumber>11</GroupNumber>
-      <FileNumber>298</FileNumber>
+      <FileNumber>305</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>

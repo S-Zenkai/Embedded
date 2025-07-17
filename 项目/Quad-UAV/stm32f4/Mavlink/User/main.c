@@ -54,6 +54,7 @@ int main(void)
             {
                 mavlink_send_raw_imu();
             }
+//						crc_calculate
             Tick++;
             MAVLINK_Parse();
         }

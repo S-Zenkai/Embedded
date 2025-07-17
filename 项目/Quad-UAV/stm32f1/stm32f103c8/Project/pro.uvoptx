@@ -153,7 +153,24 @@
           <Name>-UE1007200D0D2139393740544 -O206 -SF4000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO131091 -TC72000000 -TT10000000 -TP21 -TDS8023 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0CS32F10x_128.FLM -FS08000000 -FL010000 -FP0($$Device:CS32F103C8$Flash\CS32F10x_128.FLM) -WA0 -WE0 -WVCE4 -WS2710 -WM0 -WP2 -WK0-R0</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>59</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134222222</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>D:\GitLocalRepository\Embedded\椤圭洰\Quad-UAV\stm32f1\stm32f103c8\User\main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\pro\../User/main.c\59</Expression>
+        </Bp>
+      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -269,7 +286,7 @@
         <AscS3>0</AscS3>
         <aSer3>0</aSer3>
         <eProf>0</eProf>
-        <aLa>1</aLa>
+        <aLa>0</aLa>
         <aPa1>0</aPa1>
         <AscS4>0</AscS4>
         <aSer4>0</aSer4>
@@ -291,13 +308,6 @@
       <pszMrulep></pszMrulep>
       <pSingCmdsp></pSingCmdsp>
       <pMultCmdsp></pMultCmdsp>
-      <LogicAnalyzers>
-        <Wi>
-          <IntNumber>0</IntNumber>
-          <FirstString>((PORTA &amp; 0x00000001) &amp; 0x1) &gt;&gt; 0</FirstString>
-          <SecondString>FF000000000000000000000000000000E0FFEF400100000000000000000000000000000028504F52544120262030783030303030303031290000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000000000000000F03F150000000000000000000000000000000000000060110008</SecondString>
-        </Wi>
-      </LogicAnalyzers>
     </TargetOption>
   </Target>
 
