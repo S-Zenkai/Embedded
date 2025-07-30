@@ -52,7 +52,7 @@
 .\objects\stm32f4xx_it.o: ..\Application\Algorithm\FILTER\filter.h
 .\objects\stm32f4xx_it.o: ..\Driver\MS5611\bsp_ms5611.h
 .\objects\stm32f4xx_it.o: ..\BSP\DMA\bsp_dma.h
-.\objects\stm32f4xx_it.o: ..\Communication\UBX\ubx.h
+.\objects\stm32f4xx_it.o: ..\Driver\NEO_M8N\ubx.h
 .\objects\stm32f4xx_it.o: ..\Driver\NEO_M8N\gps.h
 .\objects\stm32f4xx_it.o: ..\Common\RINGBUFFER\ringbuff.h
 .\objects\stm32f4xx_it.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

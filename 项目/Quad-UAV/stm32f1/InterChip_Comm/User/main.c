@@ -60,7 +60,7 @@ int main(void)
     {
         /*获取rc数据*/
         get_rc_data(rc_data, RC_PWM_CHANNELS);
-        IC_Comm_Test();
+//        IC_Comm_Test();
     }
 }
 

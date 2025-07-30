@@ -48,5 +48,72 @@
 #define DMA2_C5_S6_IRQ_PRIORITY 1
 #define DMA2_C5_S6_IRQ_SUB_PRIORITY 1
 
+/**********************************飞机状态**********************************/
+/*油门限幅,影响飞机悬停与升降快慢*/
+#define THROTTLE_MAX 1200.0f
+/*最小油门*/
+#define THROTTLE_MIN 150.0f
+
+// /*滚转*/
+// #define ROLL_ANGLE_MAX 180
+// /*俯仰*/
+// #define PITCH_ANGLE_MAX 180
+// /*偏航*/
+// #define YAW_ANGLE_MAX 180
+
+/**********************************RC配置**********************************/
+/*摇杆行程最大值*/
+#define RC_MAX 2000
+/*摇杆最小值*/
+#define RC_MIN 1000
+/*中值*/
+#define RC_MID 1500
+/*开关行程最大值*/
+#define SWITCH_MAX 2000
+/*开关行程最小值*/
+#define SWITCH_MIN 1000
+/*开关中值*/
+#define SWITCH_MID 1500
+/**********************************PID模块参数**********************************/
+/*PID参数*/
+/*角度环*/
+#define ANGLE_ROLL_KP 600.0f
+#define ANGLE_PITCH_KP 600.0f
+#define ANGLE_YAW_KP 1500.0f
+/*角度环只有P*/
+#define ANGLE_ROLL_KI 
+#define ANGLE_PITCH_KI 
+#define ANGLE_YAW_KI 
+
+#define ANGLE_ROLL_KD 
+#define ANGLE_PITCH_KD 
+#define ANGLE_YAW_KD 
+/*角速度环*/
+#define RATE_ROLL_KP 80.0f
+#define RATE_PITCH_KP 80.0f
+#define RATE_YAW_KP 350.0f
+
+#define RATE_ROLL_KI 200.0f
+#define RATE_PITCH_KI 200.0f
+#define RATE_YAW_KI 250.0f
+
+#define RATE_ROLL_KD 2.0f
+#define RATE_PITCH_KD 2.0f
+#define RATE_YAW_KD 0.0f
+
+/*采样时间*/
+#define ANG_VEL_SAMPLE_TIME 0.002f
+
+/*yaw期望角速度灵敏度，越大飞机转的越快，无单位，非真实角速度*/
+#define YAW_RATE_SENSITIVITY 672.0f
+/*角速度积分限幅*/
+#define ANG_VEL_INTEGRAL_MAX 300.0f
+/*roll期望值最大值(°)*/
+#define ROLL_ANGLE_TARGET_MAX 30.0f
+/*pitch期望值最大值(°)*/
+#define PITCH_ANGLE_TARGET_MAX 30.0f
+/*角度(roll、pitch)比例输出限幅*/
+#define ANGLE_P_OUTPUT_MAX 600.0f
+
 #endif /* __PRO_CONFIG_H */
 

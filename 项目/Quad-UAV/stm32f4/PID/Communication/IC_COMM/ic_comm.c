@@ -21,6 +21,7 @@
 #include <string.h>
 #include "bsp_usart.h"
 #include "bsp_systick.h"
+#include "com_data.h"
 /** @addtogroup Template_Project
  * @{
  */
@@ -51,8 +52,7 @@ FlagStatus Heartbeat_Decode_Done = RESET;
 
 /*安全开关*/
 uint8_t safety_switch;
-/*遥控器数据(9通道)*/
-rc_data_t rc_data;
+
 /*电机控制值*/
 uint16_t motor_value[4];
 /**
@@ -228,15 +228,15 @@ static void ICC_Process_RC(uint8_t *payload)
         rc_buff[i].data_arr[0] = payload[i * 2];
         rc_buff[i].data_arr[1] = payload[i * 2 + 1];
     }
-    rc_data.channnel1 = rc_buff[0].data;
-    rc_data.channnel2 = rc_buff[1].data;
-    rc_data.channnel3 = rc_buff[2].data;
-    rc_data.channnel4 = rc_buff[3].data;
-    rc_data.channnel5 = rc_buff[4].data;
-    rc_data.channnel6 = rc_buff[5].data;
-    rc_data.channnel7 = rc_buff[6].data;
-    rc_data.channnel8 = rc_buff[7].data;
-    rc_data.channnel9 = rc_buff[8].data;
+    rc_state.raw.channel1 = rc_buff[0].data;
+    rc_state.raw.channel2 = rc_buff[1].data;
+    rc_state.raw.channel3 = rc_buff[2].data;
+    rc_state.raw.channel4 = rc_buff[3].data;
+    rc_state.raw.channel5 = rc_buff[4].data;
+    rc_state.raw.channel6 = rc_buff[5].data;
+    rc_state.raw.channel7 = rc_buff[6].data;
+    rc_state.raw.channel8 = rc_buff[7].data;
+    rc_state.raw.channel9 = rc_buff[8].data;
     RC_Data_Decode_Done = SET;
 }
 
@@ -377,11 +377,14 @@ void IC_Comm_Parser_Process(void)
 static void ICC_Extract_RC_Data(void)
 {
     /*提取RC数据*/
-    motor_value[0] = rc_data.channnel1;
-    motor_value[1] = rc_data.channnel2;
-    motor_value[2] = rc_data.channnel3;
-    motor_value[3] = rc_data.channnel4;
+    motor_value[0] = rc_state.raw.channel1;
+    motor_value[1] = rc_state.raw.channel2;
+    motor_value[2] = rc_state.raw.channel3;
+    motor_value[3] = rc_state.raw.channel4;
+
 }
+
+
 
 ///**
 // * @brief  发送ICC数据包

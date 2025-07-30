@@ -69,6 +69,7 @@ void sbus_init(void)
 {
 }
 
+uint16_t test_temp[15];
 /**
  * @brief  sbus解码
  * @note
@@ -134,6 +135,7 @@ bool sbus_decode(uint8_t *decode, uint16_t *pwm, uint8_t channel)
         {
             const struct sbus_bit_pick *pick = &SBUS_Decoder[i][j];
             pwm[i] |= (((decode[pick->byte + 1] >> pick->rshift) & pick->mask) << pick->lshift);
+						test_temp[i]=pwm[i];
         }
         pwm[i] = (pwm[i] - SBUS_RANGE_MIN) * PWM_Scale_Factor + PWM_TARGRT_MIN;
     }
@@ -153,7 +155,7 @@ bool sbus_decode(uint8_t *decode, uint16_t *pwm, uint8_t channel)
  * @param  channel: 通道数
  * @retval 无
  */
-void get_rc_data(uint16_t *rc_data, uint8_t channel)
+void get_rc_data(uint16_t *data, uint8_t channel)
 {
 		uint8_t sbus_temp[SBUS_INPUT_CHANNELS];
     if (sbus_DF_TC == SET)
@@ -161,7 +163,7 @@ void get_rc_data(uint16_t *rc_data, uint8_t channel)
         sbus_DF_TC = RESET;
 //        rc_decode_done = sbus_decode(sbus_buff[active_buff ^ 1], rc_data, channel);
 				memcpy(sbus_temp,sbus_buff,SBUS_INPUT_CHANNELS);
-				rc_decode_done = sbus_decode(sbus_temp, rc_data, channel);
+				rc_decode_done = sbus_decode(sbus_temp, data, channel);
         if (rc_decode_done == false)
         {
 //            SBUS_DEBUG("sbus decode error\n");

@@ -140,10 +140,11 @@
                 "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Middlewares\\Mavlink\\common",
                 "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Middlewares\\Mavlink",
                 "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Communication\\IC_COMM",
+                "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Application\\Control\\Atti_Control",
+                "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Application\\Control\\RC_Process",
                 "D:\\AppData\\MDK_ARM\\Keil_v5\\ARM\\ARMCC\\include",
                 "D:\\AppData\\MDK_ARM\\Keil_v5\\ARM\\ARMCC\\include\\rw",
-                "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Libraries\\STM32F10x_StdPeriph_Driver\\src",
-                "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Application\\Control\\Atti_Control"
+                "d:\\GitLocalRepository\\Embedded\\项目\\Quad-UAV\\stm32f4\\PID\\Libraries\\STM32F10x_StdPeriph_Driver\\src"
             ],
             "defines": [
                 "USE_STM324x7I_EVAL",

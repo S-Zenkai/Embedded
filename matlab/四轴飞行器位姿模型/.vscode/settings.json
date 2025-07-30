@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "atti_control.h": "c",
+        "proconfig.h": "c"
+    }
+}

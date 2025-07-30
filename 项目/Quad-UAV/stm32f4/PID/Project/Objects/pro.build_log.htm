@@ -21,17 +21,51 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.0.0
 Dialog DLL:      TARMSTM.DLL V1.67.1.0
  
 <h2>Project:</h2>
-D:\GitLocalRepository\Embedded\项目\Quad-UAV\stm32f4\InterChip_Comm\Project\pro.uvprojx
-Project File Date:  07/09/2025
+D:\GitLocalRepository\Embedded\项目\Quad-UAV\stm32f4\PID\Project\pro.uvprojx
+Project File Date:  07/21/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Drone_F427'
+compiling gps.c...
+compiling qmc5883.c...
+compiling pro_common.c...
+..\Common\COMMON\pro_common.h(60): error:  #20: identifier "rc_data_t" is undefined
+  extern rc_data_t rc_data;
+..\Common\COMMON\pro_common.c: 0 warnings, 1 error
 compiling ic_comm.c...
-linking...
-Program Size: Code=17708 RO-data=3508 RW-data=100 ZI-data=5956  
-FromELF: creating hex file...
-".\Objects\pro.axf" - 0 Error(s), 0 Warning(s).
+..\Common\COMMON\pro_common.h(60): error:  #20: identifier "rc_data_t" is undefined
+  extern rc_data_t rc_data;
+..\Communication\IC_COMM\ic_comm.c: 0 warnings, 1 error
+compiling ringbuff.c...
+compiling rc_process.c...
+compiling atti_control.c...
+..\Application\Control\Atti_Control\atti_control.c(49): warning:  #223-D: function "fabs" declared implicitly
+      float throttle_theta=fabs(cos(flight_control_state.roll_angle)*cos(flight_control_state.pitch_angle));
+..\Application\Control\Atti_Control\atti_control.c(49): warning:  #223-D: function "cos" declared implicitly
+      float throttle_theta=fabs(cos(flight_control_state.roll_angle)*cos(flight_control_state.pitch_angle));
+..\Application\Control\Atti_Control\atti_control.c(51): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      throttle_theta=throttle_theta<0.7?0.7:throttle_theta;
+..\Application\Control\Atti_Control\atti_control.c(51): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      throttle_theta=throttle_theta<0.7?0.7:throttle_theta;
+..\Application\Control\Atti_Control\atti_control.c(53): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      flight_control_state.throttle = flight_control_state.throttle * ((1 / throttle_theta - 1) * 0.5 + 1);
+..\Application\Control\Atti_Control\atti_control.c: 5 warnings, 0 errors
+compiling filter.c...
+compiling ubx.c...
+compiling mavlink_handle.c...
+..\Common\COMMON\pro_common.h(60): error:  #20: identifier "rc_data_t" is undefined
+  extern rc_data_t rc_data;
+..\Communication\Mavlink\mavlink_handle.c: 0 warnings, 1 error
+compiling stm32f4xx_it.c...
+..\Common\COMMON\pro_common.h(60): error:  #20: identifier "rc_data_t" is undefined
+  extern rc_data_t rc_data;
+..\User\stm32f4xx_it.c: 0 warnings, 1 error
+compiling main.c...
+..\Common\COMMON\pro_common.h(60): error:  #20: identifier "rc_data_t" is undefined
+  extern rc_data_t rc_data;
+..\User\main.c: 0 warnings, 1 error
+".\Objects\pro.axf" - 5 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -43,7 +77,8 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Target not created.
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

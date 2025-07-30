@@ -17,6 +17,7 @@
 #include <math.h>
 #include "bsp_usart.h"
 #include <stdbool.h>
+#include "pro_common.h"
 
 /* Private typedef -----------------------------------------------------------*/
 

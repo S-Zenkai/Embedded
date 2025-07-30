@@ -340,7 +340,7 @@
               <MiscControls>--diag_suppress=66</MiscControls>
               <Define>USE_STM324x7I_EVAL, STM32F427_437xx, USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\Application\Algorithm\FILTER;..\BSP\DMA;..\BSP\EXTI;..\BSP\IIC_SW;..\BSP\SPI;..\BSP\SYS;..\BSP\SYSTICK;..\BSP\TIM;..\BSP\USART;..\Common\COMMON;..\Common\RINGBUFFER;..\Communication\Mavlink;..\Communication\SBUS;..\Communication\UBX;..\Driver\MPU6000;..\Driver\MS5611;..\Driver\NEO_M8N;..\Driver\QMC5883;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Middlewares\Mavlink\common;..\Middlewares\Mavlink;..\Communication\IC_COMM</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\Application\Algorithm\FILTER;..\BSP\DMA;..\BSP\EXTI;..\BSP\IIC_SW;..\BSP\SPI;..\BSP\SYS;..\BSP\SYSTICK;..\BSP\TIM;..\BSP\USART;..\Common\COMMON;..\Common\RINGBUFFER;..\Communication\Mavlink;..\Communication\SBUS;..\Communication\UBX;..\Driver\MPU6000;..\Driver\MS5611;..\Driver\NEO_M8N;..\Driver\QMC5883;..\Middlewares\FreeRTOS\include;..\Middlewares\FreeRTOS\portable\RVDS\ARM_CM3;..\Middlewares\Mavlink\common;..\Middlewares\Mavlink;..\Communication\IC_COMM;..\Application\Control\Atti_Control;..\Application\Control\RC_Process</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1987,21 +1987,41 @@
               <FileType>1</FileType>
               <FilePath>..\Driver\QMC5883\qmc5883.c</FilePath>
             </File>
+            <File>
+              <FileName>ubx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\NEO_M8N\ubx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Common</GroupName>
+          <Files>
+            <File>
+              <FileName>ringbuff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Common\RINGBUFFER\ringbuff.c</FilePath>
+            </File>
+            <File>
+              <FileName>com_type.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Common\COMMON\com_type.h</FilePath>
+            </File>
+            <File>
+              <FileName>pro_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Common\COMMON\pro_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>com_data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Common\COMMON\com_data.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Communication</GroupName>
           <Files>
-            <File>
-              <FileName>ubx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Communication\UBX\ubx.c</FilePath>
-            </File>
-            <File>
-              <FileName>sbus.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Communication\SBUS\sbus.c</FilePath>
-            </File>
             <File>
               <FileName>mavlink_handle.c</FileName>
               <FileType>1</FileType>
@@ -2011,26 +2031,6 @@
               <FileName>ic_comm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Communication\IC_COMM\ic_comm.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>User</GroupName>
-          <Files>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_it.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\stm32f4xx_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>ProConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\User\ProConfig.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2052,25 +2052,30 @@
               <FileType>1</FileType>
               <FilePath>..\Application\Control\Atti_Control\atti_control.c</FilePath>
             </File>
+            <File>
+              <FileName>rc_process.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\Control\RC_Process\rc_process.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>Common</GroupName>
+          <GroupName>User</GroupName>
           <Files>
             <File>
-              <FileName>ringbuff.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Common\RINGBUFFER\ringbuff.c</FilePath>
+              <FilePath>..\User\main.c</FilePath>
             </File>
             <File>
-              <FileName>com_type.h</FileName>
+              <FileName>stm32f4xx_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\stm32f4xx_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>ProConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Common\COMMON\com_type.h</FilePath>
-            </File>
-            <File>
-              <FileName>pro_common.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Common\COMMON\pro_common.c</FilePath>
+              <FilePath>..\User\ProConfig.h</FilePath>
             </File>
           </Files>
         </Group>

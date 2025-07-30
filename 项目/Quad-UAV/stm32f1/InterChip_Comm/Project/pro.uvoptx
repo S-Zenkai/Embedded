@@ -153,7 +153,24 @@
           <Name>-T0</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>167</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134222402</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>D:\GitLocalRepository\Embedded\椤圭洰\Quad-UAV\stm32f1\InterChip_Comm\Communication\SBUS\sbus.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\pro\../Communication/SBUS/sbus.c\167</Expression>
+        </Bp>
+      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -228,7 +245,7 @@
         <Ww>
           <count>14</count>
           <WinNumber>1</WinNumber>
-          <ItemText>rc_data,0x10</ItemText>
+          <ItemText>rc_data,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>15</count>
@@ -243,7 +260,7 @@
         <Ww>
           <count>17</count>
           <WinNumber>1</WinNumber>
-          <ItemText>sbus_buff</ItemText>
+          <ItemText>pwm,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>18</count>
@@ -258,7 +275,12 @@
         <Ww>
           <count>20</count>
           <WinNumber>1</WinNumber>
-          <ItemText>pwm_value,0x0A</ItemText>
+          <ItemText>test_temp,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>21</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>rc_data,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

@@ -19,7 +19,15 @@
 #include "stm32f4xx.h"
 #include "com_type.h"
 
+/*限幅函数*/
+#define LIMIT(x,min,max) ((x)<(min)?(min):((x)>(max)?(max):(x)))
 
+
+/*角度转弧度*/
+#define PI 3.1415926f
+#define ANGLE_TO_RADIAN (PI/180.0f)
+/*弧度转角度*/
+#define RADIAN_TO_ANGLE (180.0f/PI)
 
 
 
@@ -55,5 +63,7 @@ extern Axis3f_t mpu6000_cal_gyro;
 /*****************************************************************************/
 //extern u16_u8_union_t rc_data[9];
 extern uint8_t safety_switch;
+
+
 
 #endif /* __PRO_COMMON_H */

@@ -51,7 +51,7 @@
 .\objects\main.o: ..\Application\Algorithm\FILTER\filter.h
 .\objects\main.o: ..\Driver\MS5611\bsp_ms5611.h
 .\objects\main.o: ..\BSP\DMA\bsp_dma.h
-.\objects\main.o: ..\Communication\UBX\ubx.h
+.\objects\main.o: ..\Driver\NEO_M8N\ubx.h
 .\objects\main.o: ..\Driver\NEO_M8N\gps.h
 .\objects\main.o: ..\Common\RINGBUFFER\ringbuff.h
 .\objects\main.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

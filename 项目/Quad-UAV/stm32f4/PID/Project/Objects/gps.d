@@ -41,7 +41,7 @@
 .\objects\gps.o: ..\Common\RINGBUFFER\ringbuff.h
 .\objects\gps.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\gps.o: ..\BSP\USART\bsp_usart.h
-.\objects\gps.o: ..\Communication\UBX\ubx.h
+.\objects\gps.o: ..\Driver\NEO_M8N\ubx.h
 .\objects\gps.o: ..\BSP\SYSTICK\bsp_systick.h
 .\objects\gps.o: ..\BSP\SYS\bsp_sys.h
 .\objects\gps.o: D:\AppData\MDK_ARM\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

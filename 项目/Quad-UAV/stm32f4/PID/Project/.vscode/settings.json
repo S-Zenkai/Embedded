@@ -49,6 +49,10 @@
         "pro_common.h": "c",
         "array": "c",
         "span": "c",
-        "atti_control.h": "c"
+        "atti_control.h": "c",
+        "rc_process.h": "c",
+        "stm32f4xx_conf.h": "c",
+        "com_data.h": "c",
+        "com_type.h": "c"
     }
 }

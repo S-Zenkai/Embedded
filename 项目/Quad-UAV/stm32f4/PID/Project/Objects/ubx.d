@@ -1,5 +1,5 @@
-.\objects\ubx.o: ..\Communication\UBX\ubx.c
-.\objects\ubx.o: ..\Communication\UBX\ubx.h
+.\objects\ubx.o: ..\Driver\NEO_M8N\ubx.c
+.\objects\ubx.o: ..\Driver\NEO_M8N\ubx.h
 .\objects\ubx.o: ..\Driver\NEO_M8N\gps.h
 .\objects\ubx.o: ..\Libraries\CMSIS\stm32f4xx.h
 .\objects\ubx.o: ..\Libraries\CMSIS\core_cm4.h

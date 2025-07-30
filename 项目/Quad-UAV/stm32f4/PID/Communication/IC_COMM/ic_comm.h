@@ -30,19 +30,7 @@
 
  /* Exported types ------------------------------------------------------------*/
 
-/*遥控器数据(9通道)*/
-typedef struct
-{
-    uint16_t channnel1;
-    uint16_t channnel2;
-    uint16_t channnel3;
-    uint16_t channnel4;
-    uint16_t channnel5;
-    uint16_t channnel6;
-    uint16_t channnel7;
-    uint16_t channnel8;
-    uint16_t channnel9;
-} rc_data_t;
+
 
 
 
