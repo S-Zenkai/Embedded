@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "bsp_ms5611.h": "c",
+        "bsp_sys.h": "c",
+        "globle.h": "c",
+        "stm32f4xx_dma.h": "c"
+    }
+}
